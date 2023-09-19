@@ -1,0 +1,24 @@
+{
+  "name": "animearchive",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview",
+    "deploy": "npx gh-pages -d dist",
+    "push": "npm run build && git add . && git commit -m 'new' && git push origin main"
+  },
+  "devDependencies": {
+    "@sveltejs/adapter-static": "^2.0.2",
+    "@sveltejs/vite-plugin-svelte": "^2.0.4",
+    "gh-pages": "^5.0.0",
+    "svelte": "^3.58.0",
+    "tailwindcss": "^3.3.2",
+    "vite": "^4.3.9"
+  },
+  "dependencies": {
+    "serve": "^14.2.0"
+  }
+}
