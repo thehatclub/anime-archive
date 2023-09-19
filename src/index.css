@@ -1,0 +1,38 @@
+@import url(sanitize.css);
+@import url("https://fonts.googleapis.com/css2?family=Karma:wght@300;400;500;600;700&family=Milonga&display=swap");
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.eye {
+  @apply z-0 absolute top-28;
+  transform: rotate(-90deg);
+}
+
+@layer base {
+  body,
+  html {
+    @apply text-text bg-background;
+    font-family: "Karma", serif;
+  }
+  h1 {
+    font-family: "Milonga", cursive !important;
+  }
+
+  .btn {
+    @apply rounded py-2 px-5 m-2;
+  }
+  .btn-primary {
+    @apply bg-primary text-background;
+  }
+  .btn-secondary {
+    @apply bg-secondary text-text;
+  }
+  .btn-accent {
+    @apply bg-accent text-background;
+  }
+  .btn-light {
+    @apply bg-text text-background;
+  }
+}
