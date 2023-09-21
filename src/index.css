@@ -5,39 +5,52 @@
 @tailwind components;
 @tailwind utilities;
 
-@layer compontents {
-  .eye {
-    z-index: 0;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -80%) rotate(-90deg);
-  }
-}
-
 @layer base {
   body,
   html {
-    @apply text-text bg-background;
+    @apply text-light bg-dark;
     font-family: "Karma", serif;
   }
   h1 {
     font-family: "Milonga", cursive !important;
   }
 
+  .eye {
+    z-index: 0;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -90%);
+  }
+
+  .card {
+    @apply flex p-5 gap-5 border-2 border-dark-400 rounded-lg place-items-center text-center shadow-xl shadow-dark-600;
+  }
+  .container-flexbox {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+  }
+
   .btn {
-    @apply rounded py-2 px-5 m-2;
+    @apply rounded-lg py-2 px-6 m-2 place-items-center border-2 border-dark-400 shadow-md shadow-dark-600;
+  }
+  .btn-dark {
+    @apply text-light border;
   }
   .btn-primary {
-    @apply bg-primary text-background;
+    @apply bg-primary text-dark;
+  }
+  .btn-primary-outline {
+    @apply text-primary border-2 border-primary;
   }
   .btn-secondary {
-    @apply bg-secondary text-text;
+    @apply bg-secondary text-light;
   }
   .btn-accent {
-    @apply bg-accent text-background;
+    @apply bg-accent text-dark;
   }
   .btn-light {
-    @apply bg-text text-background;
+    @apply bg-light text-dark;
   }
 }
