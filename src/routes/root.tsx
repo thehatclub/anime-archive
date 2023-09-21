@@ -25,7 +25,7 @@ export default function root() {
             </a>
           </div>
           <div className="flex flex-wrap justify-center mb-2">
-            <a href="/wizard" className="btn btn-primary">
+            <a href="wizard" className="btn btn-primary">
               List Wizard <i className="fa-solid fa-hat-wizard"></i>
             </a>
             <a href="#" className="btn btn-dark">
