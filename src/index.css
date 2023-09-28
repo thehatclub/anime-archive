@@ -1,18 +1,29 @@
-@import url(sanitize.css);
-@import url("https://fonts.googleapis.com/css2?family=Karma:wght@300;400;500;600;700&family=Milonga&display=swap");
-
+@import url("https://fonts.googleapis.com/css2?family=Luckiest+Guy&family=Spline+Sans+Mono&display=swap");
 @tailwind base;
-@tailwind components;
-@tailwind utilities;
-
 @layer base {
   body,
   html {
-    @apply text-light bg-dark;
-    font-family: "Karma", serif;
+    @apply text-light bg-dark font-body;
   }
-  h1 {
-    font-family: "Milonga", cursive !important;
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    @apply font-heading uppercase;
+  }
+  i {
+    @apply no-underline ml-3;
+  }
+  li a i {
+    margin: 0;
+    @apply mr-3;
+  }
+  .special-header {
+    -webkit-text-stroke-width: 1px;
+    -webkit-text-stroke-color: #fff;
+    color: transparent;
   }
 
   .eye {
@@ -22,30 +33,19 @@
     left: 50%;
     transform: translate(-50%, -90%);
   }
+}
 
-  .card {
-    @apply flex p-5 gap-5 border-2 border-dark-400 rounded-lg place-items-center text-center shadow-xl shadow-dark-600;
-  }
-  .container-flexbox {
-    display: flex;
-    justify-content: space-between;
-    flex-wrap: wrap;
-  }
+@tailwind components;
 
+@layer components {
   .btn {
-    @apply rounded-lg py-2 px-6 m-2 place-items-center border-2 border-dark-400 shadow-md shadow-dark-600;
+    @apply rounded-lg m-2 py-3 px-6 uppercase underline;
   }
   .btn-dark {
-    @apply text-light border;
+    @apply text-light border-2 border-dark-800;
   }
   .btn-primary {
     @apply bg-primary text-dark;
-  }
-  .btn-primary-outline {
-    @apply text-primary border-2 border-primary;
-  }
-  .btn-secondary {
-    @apply bg-secondary text-light;
   }
   .btn-accent {
     @apply bg-accent text-dark;
@@ -53,4 +53,15 @@
   .btn-light {
     @apply bg-light text-dark;
   }
+  .btn-primary-outline {
+    @apply text-primary border-2 border-primary;
+  }
+  .btn-accent-outline {
+    @apply text-accent border-2 border-accent;
+  }
+  .btn-light-outline {
+    @apply text-light border-2 border-light;
+  }
 }
+
+@tailwind utilities;

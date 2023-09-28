@@ -1,15 +1,16 @@
 export default function Navbar() {
   return (
     <>
-      <nav className="flex items-center sm:justify-between justify-center p-5">
+      <nav className="flex p-5 items-center justify-center sm:justify-between">
         <a href="/" className="text-lg hidden sm:block">
-          <i className="fa-solid fa-caret-left"></i> Back
+          <i className="fa-solid fa-caret-left"></i>{" "}
+          <span className="underline uppercase">Back</span>
         </a>
         <a className="flex items-center" href="/">
           <img src="/logo.png" alt="logo" width={50} />
-          <h1 className="ml-5 text-3xl">Anime Archive</h1>
+          <h1 className="ml-3 text-2xl underline">Anime Archive</h1>
         </a>
-        <div className="w-12 hidden sm:block"></div>{" "}
+        <div className="hidden sm:block"></div>
         {/* Empty div to create space */}
       </nav>
     </>
