@@ -39,7 +39,7 @@
 
 @layer components {
   .btn {
-    @apply rounded-lg m-2 py-3 px-6 uppercase underline;
+    @apply rounded-lg px-8 py-3 m-2 text-lg uppercase underline;
   }
   .btn-dark {
     @apply text-light border-2 border-dark-800;
@@ -65,3 +65,19 @@
 }
 
 @tailwind utilities;
+
+.current {
+  @apply text-primary;
+}
+.complete {
+  color: #afd8ff;
+}
+.hold {
+  @apply text-accent;
+}
+.drop {
+  color: #ffafaf;
+}
+.plan {
+  color: #e5afff;
+}
