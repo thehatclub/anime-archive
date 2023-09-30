@@ -33,6 +33,12 @@
     left: 50%;
     transform: translate(-50%, -90%);
   }
+  .close {
+    box-sizing: content-box;
+    position: absolute;
+    top: -0.5em;
+    right: -0.5em;
+  }
 }
 
 @tailwind components;
@@ -62,22 +68,26 @@
   .btn-light-outline {
     @apply text-light border-2 border-light;
   }
+  .btn-danger-outline {
+    @apply drop border-2;
+    border-color: #ffafaf;
+  }
+
+  .current {
+    @apply text-primary;
+  }
+  .complete {
+    color: #afd8ff;
+  }
+  .hold {
+    @apply text-accent;
+  }
+  .drop {
+    color: #ffafaf;
+  }
+  .plan {
+    color: #e5afff;
+  }
 }
 
 @tailwind utilities;
-
-.current {
-  @apply text-primary;
-}
-.complete {
-  color: #afd8ff;
-}
-.hold {
-  @apply text-accent;
-}
-.drop {
-  color: #ffafaf;
-}
-.plan {
-  color: #e5afff;
-}

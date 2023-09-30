@@ -1,19 +1,34 @@
-import Navbar from "../components/navbar";
-import Card from "../components/cards";
-import Sidebar from "../components/sidebar";
+import { Navbar, Cards, Sidebar, Edit } from "../components";
+import React from "react";
 
 export default function Wizard() {
+  const [isEditModalOpen, setIsEditModalOpen] = React.useState(false);
+
+  const openEditModal = () => {
+    setIsEditModalOpen(true);
+    document.getElementById("wizard")?.classList.add("blur");
+  };
+
+  const closeEditModal = () => {
+    setIsEditModalOpen(false);
+    document.getElementById("wizard")?.classList.remove("blur");
+  };
   return (
     <>
-      <Navbar />
-      <div className="flex place-content-center md:justify-between gap-7 m-7">
-        <div className="grid md:grid-cols-2 lg:flex lg:flex-wrap gap-7">
-          <Card />
-          <Card />
-          <Card />
+      <div id="wizard">
+        <Navbar />
+        <div className="flex place-content-center lg:justify-between m-7">
+          <div className="grid md:grid-cols-2 lg:flex lg:flex-wrap gap-7">
+            <Cards onEditClick={openEditModal} />
+          </div>
+          <Sidebar />
         </div>
-        <Sidebar />
       </div>
+      {isEditModalOpen && (
+        <div className="fixed inset-0 flex items-center justify-center z-50">
+          <Edit onClose={closeEditModal} />
+        </div>
+      )}
     </>
   );
 }

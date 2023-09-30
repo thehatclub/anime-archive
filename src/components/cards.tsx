@@ -1,4 +1,4 @@
-export default function Cards() {
+export default function Cards({ onEditClick }) {
   return (
     <>
       <div className="grid md:grid-cols-1 md:gap-0 gap-7 grid-cols-2 bg-dark-900 border-2 border-dark-800 p-6 rounded-lg">
@@ -15,7 +15,12 @@ export default function Cards() {
             <h2 className="text-xl uppercase">Anime name</h2>
           </div>
           <div className="grid lg:grid-cols-2 lg:gap-3">
-            <button className="btn btn-light-outline mx-0">Edit</button>
+            <button
+              className="btn btn-light-outline mx-0"
+              onClick={onEditClick}
+            >
+              Edit
+            </button>
             <button className="btn btn-dark mx-0">Delete</button>
           </div>
         </div>

@@ -1,47 +1,94 @@
+import React from "react";
+
 export default function Navbar() {
+  const [isMenuOpen, setIsMenuOpen] = React.useState(false);
+
+  const toggleMenu = () => {
+    setIsMenuOpen(!isMenuOpen);
+  };
+
   return (
     <>
       <header className="p-5 border-b border-dark-800 bg-dark-900 shadow-lg">
-        <div className="grid md:flex gap-5 justify-center lg:justify-start">
+        <div className="grid lg:flex gap-5 justify-center lg:justify-start">
           <a href="/" className="flex items-center p-2">
             <img src="/logo.png" alt="logo" width={50} />
             <h1 className="ml-3 text-2xl underline">Anime Archive</h1>
           </a>
-          <button className="md:hidden -mb-4">
-            <i className="fa-solid fa-caret-down"></i>
+
+          <div className={`${isMenuOpen ? "block" : "hidden"} lg:hidden`}>
+            <div className="divide-y">
+              <ul className="pt-2 pb-4 space-y-1 text-sm">
+                <li className="btn-light-outline rounded-lg">
+                  <a href="#" className="flex items-center p-2 space-x-3">
+                    <span>
+                      <i className="fa-solid fa-border-all"></i>All Anime
+                    </span>
+                  </a>
+                </li>
+                <li className="btn-dark rounded-lg">
+                  <a
+                    href="#"
+                    className="flex items-center p-2 space-x-3 current"
+                  >
+                    <span>
+                      <i className="fa-solid fa-circle"></i>Currently Watching
+                    </span>
+                  </a>
+                </li>
+                <li className="btn-dark rounded-lg">
+                  <a
+                    href="#"
+                    className="flex items-center p-2 space-x-3 complete"
+                  >
+                    <span>
+                      <i className="fa-solid fa-circle"></i>Completed
+                    </span>
+                  </a>
+                </li>
+                <li className="btn-dark rounded-lg">
+                  <a href="#" className="flex items-center p-2 space-x-3 hold">
+                    <span>
+                      <i className="fa-solid fa-circle"></i>On-Hold
+                    </span>
+                  </a>
+                </li>
+                <li className="btn-dark rounded-lg">
+                  <a href="#" className="flex items-center p-2 space-x-3 drop">
+                    <span>
+                      <i className="fa-solid fa-circle"></i>Dropped
+                    </span>
+                  </a>
+                </li>
+                <li className="btn-dark rounded-lg">
+                  <a href="#" className="flex items-center p-2 space-x-3 plan">
+                    <span>
+                      <i className="fa-solid fa-circle"></i>Plan to Watch
+                    </span>
+                  </a>
+                </li>
+              </ul>
+              <ul className="pt-4 pb-2 space-y-1 text-sm">
+                <li className="btn-dark rounded-lg">
+                  <a
+                    href="#"
+                    className="flex items-center p-2 space-x-3 rounded-lg"
+                  >
+                    <span>
+                      <i className="fa-solid fa-right-from-bracket"></i>Sign Out
+                    </span>
+                  </a>
+                </li>
+              </ul>
+            </div>
+          </div>
+          <button className="lg:hidden -mb-4" onClick={toggleMenu}>
+            <i
+              className={`fa-solid ${
+                isMenuOpen ? "fa-caret-up" : "fa-caret-down"
+              }`}
+            ></i>
           </button>
-          <ul className="hidden gap-3">
-            <li className="flex">
-              <a href="#" className="list-item">
-                All Anime
-              </a>
-            </li>
-            <li className="flex">
-              <a href="#" className="list-item">
-                Watching
-              </a>
-            </li>
-            <li className="flex">
-              <a href="#" className="list-item">
-                Completed
-              </a>
-            </li>
-            <li className="flex">
-              <a href="#" className="list-item">
-                Oh-Hold
-              </a>
-            </li>
-            <li className="flex">
-              <a href="#" className="list-item list-active">
-                Dropped
-              </a>
-            </li>
-            <li className="flex">
-              <a href="#" className="list-item">
-                Planned
-              </a>
-            </li>
-          </ul>
         </div>
       </header>
     </>
