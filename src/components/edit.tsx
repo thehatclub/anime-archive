@@ -1,4 +1,4 @@
-export default function Edit({ onClose }) {
+export default function Edit({ onClose }: any) {
   return (
     <>
       {/* <div className="flex flex-col max-w-md gap-2 p-6 rounded-lg bg-dark">

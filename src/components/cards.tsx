@@ -1,4 +1,4 @@
-export default function Cards({ onEditClick }) {
+export default function Cards({ onEditClick }: any) {
   return (
     <>
       <div className="grid md:grid-cols-1 md:gap-0 gap-7 grid-cols-2 bg-dark-900 border-2 border-dark-800 p-6 rounded-lg">
