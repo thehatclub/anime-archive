@@ -82,9 +82,9 @@ export default function Navbar() {
               </ul>
             </div>
           </div>
-          <button className="lg:hidden -mb-4" onClick={toggleMenu}>
+          <button className="lg:hidden -my-8" onClick={toggleMenu}>
             <i
-              className={`fa-solid ${
+              className={`fa-solid fa-xl ${
                 isMenuOpen ? "fa-caret-up" : "fa-caret-down"
               }`}
             ></i>

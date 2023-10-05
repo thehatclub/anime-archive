@@ -1,7 +1,7 @@
 export default function Sidebar() {
   return (
     <>
-      <div className="hidden lg:block h-full p-3 space-y-2 w-96 border-2 border-dark-800 p-5 rounded-lg">
+      <div className="p-3 space-y-2 border-2 border-dark-800 p-5 rounded-lg">
         <div className="flex place-content-center p-2 space-x-4">
           <img
             src="profile.jpg"

@@ -17,13 +17,22 @@ export default function Wizard() {
     <>
       <div id="wizard">
         <Navbar />
-        <div className="flex place-content-center lg:justify-between m-7">
-          <div className="grid md:grid-cols-2 lg:flex lg:flex-wrap gap-7">
-            <Cards onEditClick={openEditModal} />
+        <section className="w-full mx-auto px-4 m-4">
+          <div className="grid lg:grid-cols-12 gap-5 p-4 m-2">
+            <main className="col-span-full lg:col-span-9 p-4">
+              <div className="flex flex-wrap gap-2 justify-center lg:justify-start">
+                <Cards onEditClick={openEditModal} />
+                <Cards onEditClick={openEditModal} />
+                <Cards onEditClick={openEditModal} />
+              </div>
+            </main>
+            <aside className="hidden lg:col-span-3 lg:block p-2">
+              <Sidebar />
+            </aside>
           </div>
-          <Sidebar />
-        </div>
+        </section>
       </div>
+
       {isEditModalOpen && (
         <div className="fixed inset-0 flex items-center justify-center z-50">
           <Edit onClose={closeEditModal} />

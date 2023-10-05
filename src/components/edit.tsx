@@ -1,22 +1,7 @@
 export default function Edit({ onClose }: any) {
   return (
     <>
-      {/* <div className="flex flex-col max-w-md gap-2 p-6 rounded-lg bg-dark">
-        <h2 className="flex items-center gap-2 text-xl">
-          <i className="fa-solid fa-wand-magic-sparkles m-0 mr-2"></i>Editing
-          Anime Name
-        </h2>
-        <p className="flex-1 dark:text-gray-400">
-          Mauris et lorem at elit tristique dignissim et ullamcorper elit. In
-          sed feugiat mi. Etiam ut lacinia dui.
-        </p>
-        <div className="flex flex-col justify-end gap-3 mt-6 sm:flex-row">
-          <button className="btn btn-accent" onClick={onClose}>
-            Close
-          </button>
-        </div>
-      </div> */}
-      <section className="flex relative p-6 m-7 bg-dark border-2 border-dark-800 rounded-lg">
+      <section className="flex relative p-6 m-7 bg-dark-900 border-2 border-dark-800 rounded-lg">
         <button className="close" onClick={onClose}>
           <i className="fa-solid fa-square-xmark fa-2xl"></i>
         </button>

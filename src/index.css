@@ -4,6 +4,7 @@
   body,
   html {
     @apply text-light bg-dark font-body;
+    overflow-x: hidden;
   }
   h1,
   h2,
@@ -29,22 +30,24 @@
   .eye {
     z-index: 0;
     position: absolute;
-    top: 50%;
+    top: 20%;
     left: 50%;
-    transform: translate(-50%, -90%);
+    transform: translate(-50%, -90%) rotate(150deg);
+    width: 30rem;
   }
   .close {
     box-sizing: content-box;
     position: absolute;
-    top: -0.5em;
-    right: -0.5em;
+    top: -2rem;
+    right: -3rem;
   }
 }
 
 @tailwind components;
 
 @layer components {
-  .btn {
+  .btn,
+  button {
     @apply rounded-lg px-8 py-3 m-2 text-lg uppercase underline;
   }
   .btn-dark {
