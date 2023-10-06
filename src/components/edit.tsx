@@ -7,23 +7,23 @@ export default function Edit({ onClose }: any) {
         </button>
         <form action="post">
           <fieldset className="grid grid-cols-4 gap-5 items-center">
-            <div className="space-y-2 col-span-full lg:col-span-1">
+            <div className="max-w-xs rounded-lg col-span-full lg:col-span-1 text-center justify-self-center">
               <img
                 src="/template-art.png"
                 alt="Box Art"
-                className="object-cover object-center w-full rounded-lg h-72 p-4"
+                className="object-cover object-center w-full rounded-lg h-72"
               />
-
-              <div className="mt-6 mb-2 text-center">
-                <span className="block text-sm text-light-200 uppercase">
-                  Released July 2023
-                </span>
-                <h2 className="text-xl uppercase">Anime name</h2>
+              <div className="flex flex-col justify-between p-6 space-y-8">
+                <div className="space-y-2">
+                  <p className="text-dark-300">Released Month Year</p>
+                  <h2 className="text-3xl">Anime Name</h2>
+                </div>
               </div>
             </div>
+
             <div className="grid grid-cols-6 col-span-full lg:col-span-3 gap-5">
               <div className="col-span-full">
-                <label htmlFor="username" className="text-sm">
+                <label htmlFor="status" className="text-sm">
                   Status
                 </label>
                 <select
@@ -39,7 +39,7 @@ export default function Edit({ onClose }: any) {
                 </select>
               </div>
               <div className="col-span-full">
-                <label htmlFor="website" className="text-sm">
+                <label htmlFor="episodes" className="text-sm">
                   Episodes
                 </label>
                 <input

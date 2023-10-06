@@ -1,27 +1,22 @@
 export default function Cards({ onEditClick }: any) {
   return (
     <>
-      <div className="grid md:grid-cols-1 md:gap-0 gap-7 grid-cols-2 bg-dark-900 border-2 border-dark-800 p-6 rounded-lg">
+      <div className="max-w-xs rounded-lg bg-dark-900 border-2 border-dark-800">
         <img
           src="/template-art.png"
           alt="Box Art"
-          className="object-cover object-center w-full rounded-lg h-72"
+          className="object-cover object-center w-full rounded-t-lg h-72"
         />
-        <div className="text-center">
-          <div className="mt-6 mb-2">
-            <span className="block text-sm text-light-200 uppercase">
-              Released July 2023
-            </span>
-            <h2 className="text-xl uppercase">Anime name</h2>
+        <div className="flex flex-col justify-between p-6 space-y-8">
+          <div className="space-y-2">
+            <p className="text-dark-300 text-sm">Released July 2023</p>
+            <h2 className="text-2xl">Anime Name</h2>
           </div>
-          <div className="grid lg:grid-cols-2 lg:gap-3">
-            <button
-              className="btn btn-light-outline mx-0"
-              onClick={onEditClick}
-            >
+          <div className="grid grid-cols-2 gap-2">
+            <button className="btn btn-light-outline m-0" onClick={onEditClick}>
               Edit
             </button>
-            <button className="btn btn-dark mx-0">Delete</button>
+            <button className="btn btn-dark m-0">Delete</button>
           </div>
         </div>
       </div>
