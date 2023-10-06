@@ -41,6 +41,9 @@
     top: -2rem;
     right: -3rem;
   }
+  .sidebar {
+    padding-top: 106px;
+  }
 }
 
 @tailwind components;

@@ -17,22 +17,32 @@ export default function Wizard() {
     <>
       <div id="wizard">
         <Navbar />
-        <section className="w-full mx-auto px-4 m-4">
-          <div className="grid lg:grid-cols-12 gap-5 p-4 m-2">
-            <main className="col-span-full lg:col-span-9 p-4">
-              <div className="flex flex-wrap gap-2 justify-center lg:justify-start">
-                <Cards onEditClick={openEditModal} />
-                <Cards onEditClick={openEditModal} />
-                <Cards onEditClick={openEditModal} />
-              </div>
-            </main>
-            <aside className="hidden lg:col-span-3 lg:block p-2">
-              <Sidebar />
-            </aside>
-          </div>
-        </section>
+        <div className="flex flex-col lg:flex-row">
+          <aside className="w-1/5 hidden lg:block sidebar">
+            <Sidebar />
+          </aside>
+          <section className="w-full mx-auto px-4 m-4 pt-20">
+            <div className="grid gap-5 p-4 m-2">
+              <main className="col-span-full p-4">
+                <div className="flex flex-wrap gap-2 justify-center">
+                  <Cards onEditClick={openEditModal} />
+                  <Cards onEditClick={openEditModal} />
+                  <Cards onEditClick={openEditModal} />
+                  <Cards onEditClick={openEditModal} />
+                  <Cards onEditClick={openEditModal} />
+                  <Cards onEditClick={openEditModal} />
+                  <Cards onEditClick={openEditModal} />
+                  <Cards onEditClick={openEditModal} />
+                  <Cards onEditClick={openEditModal} />
+                  <Cards onEditClick={openEditModal} />
+                  <Cards onEditClick={openEditModal} />
+                  <Cards onEditClick={openEditModal} />
+                </div>
+              </main>
+            </div>
+          </section>
+        </div>
       </div>
-
       {isEditModalOpen && (
         <div className="fixed inset-0 flex items-center justify-center z-50">
           <Edit onClose={closeEditModal} />

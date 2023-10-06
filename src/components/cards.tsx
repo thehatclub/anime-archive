@@ -1,7 +1,7 @@
 export default function Cards({ onEditClick }: any) {
   return (
     <>
-      <div className="max-w-xs rounded-lg bg-dark-900 border-2 border-dark-800">
+      <div className="rounded-lg bg-dark-900 border-2 border-dark-800">
         <img
           src="/template-art.png"
           alt="Box Art"
