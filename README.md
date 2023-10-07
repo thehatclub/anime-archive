@@ -28,7 +28,7 @@ Follow these steps to get Anime Archive up and running on your local machine:
 
 ## Contributing
 
-Contributions are welcome! If you'd like to contribute to Anime Archive, please read our [Contribution Guidelines](CONTRIBUTING) for detailed information on how to get started.
+Contributions are welcome! If you'd like to contribute to Anime Archive, please read our [Contribution Guidelines](./CONTRIBUTING.md) for detailed information on how to get started.
 
 ## License
 
