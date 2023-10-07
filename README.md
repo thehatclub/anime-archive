@@ -28,11 +28,11 @@ Follow these steps to get Anime Archive up and running on your local machine:
 
 ## Contributing
 
-Contributions are welcome! If you'd like to contribute to Anime Archive, please read our [Contribution Guidelines](CONTRIBUTING.md) for detailed information on how to get started.
+Contributions are welcome! If you'd like to contribute to Anime Archive, please read our [Contribution Guidelines](CONTRIBUTING) for detailed information on how to get started.
 
 ## License
 
-This project is licensed under the MIT License - see the [LICENSE](LICENSE.md) file for details.
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
 ## Contact
 
@@ -44,4 +44,4 @@ If you have any questions or feedback, feel free to reach out:
 
 [![GitHub Stars](https://img.shields.io/github/stars/thehatclub/anime-archive.svg)](https://github.com/thehatclub/anime-archive/stargazers)
 [![GitHub Forks](https://img.shields.io/github/forks/thehatclub/anime-archive.svg)](https://github.com/thehatclub/anime-archive/network)
-[![License](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE.md)
+[![License](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
