@@ -32,7 +32,7 @@ Contributions are welcome! If you'd like to contribute to Anime Archive, please 
 
 ## License
 
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+This project is licensed under the MIT License - see the [LICENSE](./LICENSE.md) file for details.
 
 ## Contact
 
@@ -44,4 +44,4 @@ If you have any questions or feedback, feel free to reach out:
 
 [![GitHub Stars](https://img.shields.io/github/stars/thehatclub/anime-archive.svg)](https://github.com/thehatclub/anime-archive/stargazers)
 [![GitHub Forks](https://img.shields.io/github/forks/thehatclub/anime-archive.svg)](https://github.com/thehatclub/anime-archive/network)
-[![License](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
+[![License](https://img.shields.io/badge/license-MIT-blue.svg)](./LICENSE.md)
