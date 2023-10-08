@@ -1,27 +1,43 @@
-# React + TypeScript + Vite
+# <img src="./public/logo.png" alt="drawing" width="50" /> Anime Archive
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Anime Archive is a web application developed in React and Tailwind CSS, designed to serve as a tool for reformatting anime progress data to fit the standard for My Anime List (MAL). This app provides users with the capability to store their anime progress offline, sync with their MAL account, and save data as a raw file to their computer for personal use.
 
-Currently, two official plugins are available:
+## Motivation
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+Anime enthusiasts often use My Anime List to keep track of their watched shows and progress. However, there may be times when you want to keep a local copy of your anime list data, or you prefer to reformat your progress in a custom way. Anime Archive aims to bridge that gap by providing an easy-to-use solution for managing and formatting anime progress data.
 
-## Expanding the ESLint configuration
+## Features
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+- **Offline Progress Tracking**: Store your anime progress data locally, even without an internet connection.
 
-- Configure the top-level `parserOptions` property like this:
+- **My Anime List Sync**: Sync your anime list with your My Anime List (MAL) account seamlessly.
 
-```js
-   parserOptions: {
-    ecmaVersion: 'latest',
-    sourceType: 'module',
-    project: ['./tsconfig.json', './tsconfig.node.json'],
-    tsconfigRootDir: __dirname,
-   },
-```
+- **Custom Formatting**: Reformat your anime progress data to fit your preferences or export it in a way that suits your needs.
 
-- Replace `plugin:@typescript-eslint/recommended` to `plugin:@typescript-eslint/recommended-type-checked` or `plugin:@typescript-eslint/strict-type-checked`
-- Optionally add `plugin:@typescript-eslint/stylistic-type-checked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and add `plugin:react/recommended` & `plugin:react/jsx-runtime` to the `extends` list
+- **Export to File**: Save your anime progress as a raw file on your computer for personal use or backup.
+
+## Getting Started
+
+Follow these steps to get Anime Archive up and running on your local machine:
+
+1. Clone the repository: `git clone https://github.com/thehatclub/anime-archive.git`
+
+2. Install dependencies: `npm install`
+
+3. Start the development server: `npm start`
+
+## License
+
+This project is licensed under the MIT License - see the [LICENSE](./LICENSE) file for details.
+
+## Contact
+
+If you have any questions or feedback, feel free to reach out:
+
+- GitHub Issues: [Anime Archive Issues](https://github.com/thehatclub/anime-archive/issues)
+
+---
+
+[![GitHub Stars](https://img.shields.io/github/stars/thehatclub/anime-archive.svg)](https://github.com/thehatclub/anime-archive/stargazers)
+[![GitHub Forks](https://img.shields.io/github/forks/thehatclub/anime-archive.svg)](https://github.com/thehatclub/anime-archive/network)
+[![License](https://img.shields.io/badge/license-MIT-blue.svg)](./LICENSE)
