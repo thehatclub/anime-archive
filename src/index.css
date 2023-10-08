@@ -1,5 +1,8 @@
 @import url("https://fonts.googleapis.com/css2?family=Luckiest+Guy&family=Spline+Sans+Mono&display=swap");
 @tailwind base;
+@tailwind components;
+@tailwind utilities;
+
 @layer base {
   body,
   html {
@@ -14,17 +17,14 @@
   h6 {
     @apply font-heading uppercase;
   }
-  i {
-    @apply no-underline ml-3;
+  li {
+    @apply btn-dark rounded-md;
   }
-  li a i {
-    margin: 0;
-    @apply mr-3;
+  .form-control {
+    @apply py-2 px-5 text-sm rounded-md bg-dark;
   }
-  .special-header {
-    -webkit-text-stroke-width: 1px;
-    -webkit-text-stroke-color: #fff;
-    color: transparent;
+  .list-item {
+    @apply flex items-center p-2 space-x-2;
   }
 
   .eye {
@@ -35,35 +35,23 @@
     transform: translate(-50%, -90%) rotate(150deg);
     width: 30rem;
   }
-  .close {
-    box-sizing: content-box;
-    position: absolute;
-    top: -2rem;
-    right: -3rem;
-  }
+
   .sidebar {
     padding-top: 106px;
   }
-}
 
-@tailwind components;
+  .button-group {
+    @apply col-span-full flex flex-wrap gap-4;
+  }
 
-@layer components {
-  .btn,
-  button {
-    @apply rounded-lg px-8 py-3 m-2 text-lg uppercase underline;
+  .btn {
+    @apply flex justify-center space-x-2 items-baseline rounded-md px-8 py-3 text-lg uppercase w-full lg:w-auto;
   }
   .btn-dark {
     @apply text-light border-2 border-dark-800;
   }
   .btn-primary {
     @apply bg-primary text-dark;
-  }
-  .btn-accent {
-    @apply bg-accent text-dark;
-  }
-  .btn-light {
-    @apply bg-light text-dark;
   }
   .btn-primary-outline {
     @apply text-primary border-2 border-primary;
@@ -74,26 +62,4 @@
   .btn-light-outline {
     @apply text-light border-2 border-light;
   }
-  .btn-danger-outline {
-    @apply drop border-2;
-    border-color: #ffafaf;
-  }
-
-  .current {
-    @apply text-primary;
-  }
-  .complete {
-    color: #afd8ff;
-  }
-  .hold {
-    @apply text-accent;
-  }
-  .drop {
-    color: #ffafaf;
-  }
-  .plan {
-    color: #e5afff;
-  }
 }
-
-@tailwind utilities;

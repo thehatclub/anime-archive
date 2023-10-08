@@ -1,11 +1,11 @@
-export default function Cards({ onEditClick }: any) {
+export default function Card({ onEditClick }: any) {
   return (
     <>
-      <div className="rounded-lg bg-dark-900 border-2 border-dark-800">
+      <div className="rounded-md bg-dark-900 border-2 border-dark-800">
         <img
           src="/template-art.png"
           alt="Box Art"
-          className="object-cover object-center w-full rounded-t-lg h-72"
+          className="object-cover object-center w-full rounded-t-md h-72"
         />
         <div className="flex flex-col justify-between p-6 space-y-8">
           <div className="space-y-2">

@@ -1,4 +1,4 @@
-import { Navbar, Cards, Sidebar, Edit } from "../components";
+import { Navbar, Card, Sidebar, Edit } from "../components";
 import React from "react";
 
 export default function Wizard() {
@@ -25,18 +25,9 @@ export default function Wizard() {
             <div className="grid gap-5 p-4 m-2">
               <main className="col-span-full p-4">
                 <div className="flex flex-wrap gap-2 justify-center">
-                  <Cards onEditClick={openEditModal} />
-                  <Cards onEditClick={openEditModal} />
-                  <Cards onEditClick={openEditModal} />
-                  <Cards onEditClick={openEditModal} />
-                  <Cards onEditClick={openEditModal} />
-                  <Cards onEditClick={openEditModal} />
-                  <Cards onEditClick={openEditModal} />
-                  <Cards onEditClick={openEditModal} />
-                  <Cards onEditClick={openEditModal} />
-                  <Cards onEditClick={openEditModal} />
-                  <Cards onEditClick={openEditModal} />
-                  <Cards onEditClick={openEditModal} />
+                  <Card onEditClick={openEditModal} />
+                  <Card onEditClick={openEditModal} />
+                  <Card onEditClick={openEditModal} />
                 </div>
               </main>
             </div>

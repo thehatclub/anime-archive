@@ -4,7 +4,11 @@ export default function Sidebar() {
       <div className="lg:fixed h-auto lg:h-screen bg-dark-900 lg:border-r-2 border-dark-800 p-5">
         <div className="space-y-3">
           <div className="flex items-center p-2 mb-12 space-x-4 justify-self-end">
-            <img src="profile.jpg" alt="" className="w-12 h-12 rounded-lg" />
+            <img
+              src="profile.jpg"
+              alt="MAL Profile"
+              className="w-12 h-12 rounded-md"
+            />
             <div>
               <h2 className="text-lg">MAL Username</h2>
               <span className="flex items-center space-x-1">
@@ -18,76 +22,67 @@ export default function Sidebar() {
               </span>
             </div>
           </div>
+
           <div className="relative">
-            <span className="absolute inset-y-0 -left-3 flex items-center py-4">
-              <button type="submit" className="p-2">
-                <i className="fa-solid fa-magnifying-glass text-dark-600"></i>
+            <span className="absolute inset-y-0 left-0 flex items-center pl-2">
+              <button type="button" title="search" className="p-1">
+                <i className="fa-solid fa-magnifying-glass w-4 h-4"></i>
               </button>
             </span>
             <input
               type="search"
               name="Search"
               placeholder="Search..."
-              className="w-full py-2 pl-10 text-sm rounded-lg bg-dark"
+              className="pl-10 w-full form-control"
             />
           </div>
-          <div className="flex-1 divide-y">
+
+          <div className="divide-y">
             <ul className="pt-2 pb-4 space-y-1 text-sm">
-              <li className="btn-light-outline rounded-lg">
-                <a href="#" className="flex items-center p-2 space-x-3">
-                  <span>
-                    <i className="fa-solid fa-border-all"></i>All Anime
+              <li>
+                <a href="#" className="list-item">
+                  <i className="fa-solid fa-border-all"></i>
+                  <span>All Anime</span>
+                </a>
+              </li>
+              <li>
+                <a href="#" className="list-item">
+                  <i className="fa-solid fa-circle"></i>
+                  <span>Currently Watching</span>
+                </a>
+              </li>
+              <li>
+                <a href="#" className="list-item">
+                  <i className="fa-solid fa-circle"></i>
+                  <span>Completed</span>
+                </a>
+              </li>
+              <li>
+                <a href="#" className="list-item">
+                  <i className="fa-solid fa-circle"></i>
+                  <span>On-Hold</span>
+                </a>
+              </li>
+              <li>
+                <a href="#" className="">
+                  <span className="list-item">
+                    <i className="fa-solid fa-circle"></i>
+                    <span>Dropped</span>
                   </span>
                 </a>
               </li>
-              <li className="btn-dark rounded-lg">
-                <a href="#" className="flex items-center p-2 space-x-3 current">
-                  <span>
-                    <i className="fa-solid fa-circle"></i>Currently Watching
-                  </span>
-                </a>
-              </li>
-              <li className="btn-dark rounded-lg">
-                <a
-                  href="#"
-                  className="flex items-center p-2 space-x-3 complete"
-                >
-                  <span>
-                    <i className="fa-solid fa-circle"></i>Completed
-                  </span>
-                </a>
-              </li>
-              <li className="btn-dark rounded-lg">
-                <a href="#" className="flex items-center p-2 space-x-3 hold">
-                  <span>
-                    <i className="fa-solid fa-circle"></i>On-Hold
-                  </span>
-                </a>
-              </li>
-              <li className="btn-dark rounded-lg">
-                <a href="#" className="flex items-center p-2 space-x-3 drop">
-                  <span>
-                    <i className="fa-solid fa-circle"></i>Dropped
-                  </span>
-                </a>
-              </li>
-              <li className="btn-dark rounded-lg">
-                <a href="#" className="flex items-center p-2 space-x-3 plan">
-                  <span>
-                    <i className="fa-solid fa-circle"></i>Plan to Watch
-                  </span>
+              <li>
+                <a href="#" className="list-item">
+                  <i className="fa-solid fa-circle"></i>
+                  <span>Plan to Watch</span>
                 </a>
               </li>
             </ul>
             <ul className="pt-4 pb-2 space-y-1 text-sm">
-              <li className="btn-dark rounded-lg">
-                <a
-                  href="#"
-                  className="flex items-center p-2 space-x-3 rounded-lg"
-                >
-                  <span>
-                    <i className="fa-solid fa-right-from-bracket"></i>Sign Out
-                  </span>
+              <li>
+                <a href="#" className="list-item">
+                  <i className="fa-solid fa-right-from-bracket"></i>
+                  <span>Sign Out</span>
                 </a>
               </li>
             </ul>

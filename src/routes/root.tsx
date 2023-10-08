@@ -5,7 +5,7 @@ export default function root() {
         <img src="/logo.png" alt="logo" className="eye" />
         <div className="relative container mx-auto flex flex-col items-center px-4 py-16 text-center md:py-32 md:px-10 lg:px-32 xl:max-w-3xl">
           <div className="bg-dark">
-            <h1 className="leading-none ">
+            <h1 className="leading-none">
               <span className="text-3xl sm:text-4xl">WELCOME TO THE</span>
               <br />
               <span className="text-4xl sm:text-5xl underline text-accent">
@@ -16,21 +16,24 @@ export default function root() {
               A place where you can store your progress offline
             </p>
           </div>
-          <div className="hidden flex flex-wrap justify-center">
+          <div className="hidden button-group justify-center">
             <a className="btn btn-primary">
-              Sign In<i className="fa-solid fa-right-to-bracket"></i>
+              <i className="fa-solid fa-right-to-bracket"></i>
+              <span>Sign In</span>
             </a>
             <a className="btn btn-dark">
-              My Anime List
               <i className="fa-solid fa-arrow-up-right-from-square"></i>
+              <span>My Anime List</span>
             </a>
           </div>
-          <div className="flex flex-wrap justify-center">
+          <div className="button-group justify-center">
             <a href="wizard" className="btn btn-primary">
-              List Wizard<i className="fa-solid fa-hat-wizard"></i>
+              <i className="fa-solid fa-hat-wizard"></i>
+              <span>List Wizard</span>
             </a>
             <a href="#" className="btn btn-dark">
-              Sign Out<i className="fa-solid fa-right-from-bracket"></i>
+              <i className="fa-solid fa-right-from-bracket"></i>
+              <span>Sign Out</span>
             </a>
           </div>
         </div>
