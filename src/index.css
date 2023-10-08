@@ -6,7 +6,7 @@
 @layer base {
   body,
   html {
-    @apply text-light bg-dark font-body;
+    @apply text-light bg-dark font-body hide-scroll;
     overflow-x: hidden;
   }
   h1,
@@ -61,5 +61,16 @@
   }
   .btn-light-outline {
     @apply text-light border-2 border-light;
+  }
+
+  /* Hide scrollbar for Chrome, Safari and Opera */
+  .hide-scroll::-webkit-scrollbar {
+    display: none;
+  }
+
+  /* Hide scrollbar for IE, Edge and Firefox */
+  .hide-scroll {
+    -ms-overflow-style: none; /* IE and Edge */
+    scrollbar-width: none; /* Firefox */
   }
 }

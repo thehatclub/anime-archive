@@ -39,41 +39,35 @@ export default function Sidebar() {
 
           <div className="divide-y">
             <ul className="pt-2 pb-4 space-y-1 text-sm">
-              <li>
+              <li className="btn-primary-iout">
                 <a href="#" className="list-item">
-                  <i className="fa-solid fa-border-all"></i>
                   <span>All Anime</span>
                 </a>
               </li>
               <li>
                 <a href="#" className="list-item">
-                  <i className="fa-solid fa-circle"></i>
                   <span>Currently Watching</span>
                 </a>
               </li>
               <li>
                 <a href="#" className="list-item">
-                  <i className="fa-solid fa-circle"></i>
                   <span>Completed</span>
                 </a>
               </li>
               <li>
                 <a href="#" className="list-item">
-                  <i className="fa-solid fa-circle"></i>
                   <span>On-Hold</span>
                 </a>
               </li>
               <li>
                 <a href="#" className="">
                   <span className="list-item">
-                    <i className="fa-solid fa-circle"></i>
                     <span>Dropped</span>
                   </span>
                 </a>
               </li>
               <li>
                 <a href="#" className="list-item">
-                  <i className="fa-solid fa-circle"></i>
                   <span>Plan to Watch</span>
                 </a>
               </li>
