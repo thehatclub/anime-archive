@@ -6,7 +6,7 @@
 @layer base {
   body,
   html {
-    @apply text-light bg-dark font-body hide-scroll;
+    @apply text-light bg-dark font-body;
     overflow-x: hidden;
   }
   h1,
@@ -52,6 +52,9 @@
   }
   .btn-primary {
     @apply bg-primary text-dark;
+  }
+  .btn-accent {
+    @apply bg-accent text-dark;
   }
   .btn-primary-outline {
     @apply text-primary border-2 border-primary;

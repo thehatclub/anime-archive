@@ -44,11 +44,9 @@ export default function Edit({ onClose }: any) {
                 </div>
                 <div className="button-group justify-self-end">
                   <button className="btn btn-primary">
-                    <i className="fa-solid fa-floppy-disk"></i>
                     <span>Save Changes</span>
                   </button>
                   <button className="btn btn-light-outline">
-                    <i className="fa-solid fa-trash"></i>
                     <span>Delete</span>
                   </button>
                   <button className="btn btn-dark " onClick={onClose}>

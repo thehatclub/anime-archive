@@ -18,13 +18,21 @@ export default function Wizard() {
       <div id="wizard">
         <Navbar />
         <div className="flex flex-col lg:flex-row">
-          <aside className="w-1/5 hidden lg:block sidebar">
+          <aside className="w-1/6 hidden lg:block sidebar">
             <Sidebar />
           </aside>
-          <section className="w-full mx-auto px-4 m-4 pt-20">
+          <section className="w-full pt-24 lg:pt-20">
             <div className="grid gap-5 p-4 m-2">
               <main className="col-span-full p-4">
                 <div className="flex flex-wrap gap-2 justify-center">
+                  <Card onEditClick={openEditModal} />
+                  <Card onEditClick={openEditModal} />
+                  <Card onEditClick={openEditModal} />
+                  <Card onEditClick={openEditModal} />
+                  <Card onEditClick={openEditModal} />
+                  <Card onEditClick={openEditModal} />
+                  <Card onEditClick={openEditModal} />
+                  <Card onEditClick={openEditModal} />
                   <Card onEditClick={openEditModal} />
                   <Card onEditClick={openEditModal} />
                   <Card onEditClick={openEditModal} />

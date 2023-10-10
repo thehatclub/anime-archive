@@ -10,7 +10,7 @@ export default function Navbar() {
 
   return (
     <>
-      <header className="fixed top-0 left-0 right-0 p-5 border-b border-dark-800 bg-dark-900">
+      <header className="fixed top-0 left-0 right-0 p-5 border-b-2 border-dark-800 bg-dark-900">
         <div className="grid lg:flex gap-5 justify-center lg:justify-start">
           <a href="/" className="flex items-center p-2">
             <img src="/logo.png" alt="logo" width={50} />

@@ -1,9 +1,9 @@
 export default function Sidebar() {
   return (
     <>
-      <div className="lg:fixed h-auto lg:h-screen bg-dark-900 lg:border-r-2 border-dark-800 p-5">
+      <div className="lg:fixed h-auto lg:h-screen bg-dark-900 lg:border-r-2 border-dark-800 lg:p-5">
         <div className="space-y-3">
-          <div className="flex items-center p-2 mb-12 space-x-4 justify-self-end">
+          <div className="hidden lg:flex items-center p-2 mb-12 space-x-4 justify-self-end">
             <img
               src="profile.jpg"
               alt="MAL Profile"
@@ -38,41 +38,45 @@ export default function Sidebar() {
           </div>
 
           <div className="divide-y">
-            <ul className="pt-2 pb-4 space-y-1 text-sm">
-              <li className="btn-primary-iout">
-                <a href="#" className="list-item">
-                  <span>All Anime</span>
-                </a>
-              </li>
-              <li>
-                <a href="#" className="list-item">
-                  <span>Currently Watching</span>
-                </a>
-              </li>
-              <li>
-                <a href="#" className="list-item">
-                  <span>Completed</span>
-                </a>
-              </li>
-              <li>
-                <a href="#" className="list-item">
-                  <span>On-Hold</span>
-                </a>
-              </li>
-              <li>
-                <a href="#" className="">
-                  <span className="list-item">
-                    <span>Dropped</span>
-                  </span>
-                </a>
-              </li>
-              <li>
-                <a href="#" className="list-item">
-                  <span>Plan to Watch</span>
-                </a>
-              </li>
+            <ul className="grid grid-cols-2 gap-2 lg:gap-0 lg:grid-cols-1 items-center pt-2 pb-4 text-sm text-center lg:text-start">
+              <div className="space-y-1">
+                <li className="btn-primary-outline">
+                  <a href="#" className="list-item">
+                    <span>All</span>
+                  </a>
+                </li>
+                <li>
+                  <a href="#" className="list-item">
+                    <span>Watching</span>
+                  </a>
+                </li>
+                <li>
+                  <a href="#" className="list-item">
+                    <span>Completed</span>
+                  </a>
+                </li>
+              </div>
+              <div className="space-y-1">
+                <li>
+                  <a href="#" className="list-item">
+                    <span>On-Hold</span>
+                  </a>
+                </li>
+                <li>
+                  <a href="#" className="">
+                    <span className="list-item">
+                      <span>Dropped</span>
+                    </span>
+                  </a>
+                </li>
+                <li>
+                  <a href="#" className="list-item">
+                    <span>Planned</span>
+                  </a>
+                </li>
+              </div>
             </ul>
-            <ul className="pt-4 pb-2 space-y-1 text-sm">
+            <ul className="pt-4 pb-2 space-y-1 text-sm text-center lg:text-start">
               <li>
                 <a href="#" className="list-item">
                   <i className="fa-solid fa-right-from-bracket"></i>
