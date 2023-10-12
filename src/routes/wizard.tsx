@@ -1,21 +1,23 @@
-import { Navbar, Card, Sidebar, Edit } from "../components";
+import { Navbar, Card, Sidebar, Modal } from "../components";
 import React from "react";
 
 export default function Wizard() {
-  const [isEditModalOpen, setIsEditModalOpen] = React.useState(false);
+  const [isModalOpen, setIsModalOpen] = React.useState(false);
+  const [modalType, setModalType] = React.useState(""); // 'edit' or 'delete'
+  const isBlurred = isModalOpen;
 
-  const openEditModal = () => {
-    setIsEditModalOpen(true);
-    document.getElementById("wizard")?.classList.add("blur");
+  const openModal = (modal: string) => {
+    setModalType(modal);
+    setIsModalOpen(true);
   };
 
-  const closeEditModal = () => {
-    setIsEditModalOpen(false);
-    document.getElementById("wizard")?.classList.remove("blur");
+  const closeModal = () => {
+    setIsModalOpen(false);
   };
+
   return (
     <>
-      <div id="wizard">
+      <div className={isBlurred ? "blur" : ""}>
         <Navbar />
         <div className="flex flex-col lg:flex-row">
           <aside className="w-1/6 hidden lg:block sidebar">
@@ -25,26 +27,19 @@ export default function Wizard() {
             <div className="grid gap-5 p-4 m-2">
               <main className="col-span-full p-4">
                 <div className="flex flex-wrap gap-2 justify-center">
-                  <Card onEditClick={openEditModal} />
-                  <Card onEditClick={openEditModal} />
-                  <Card onEditClick={openEditModal} />
-                  <Card onEditClick={openEditModal} />
-                  <Card onEditClick={openEditModal} />
-                  <Card onEditClick={openEditModal} />
-                  <Card onEditClick={openEditModal} />
-                  <Card onEditClick={openEditModal} />
-                  <Card onEditClick={openEditModal} />
-                  <Card onEditClick={openEditModal} />
-                  <Card onEditClick={openEditModal} />
+                  <Card
+                    onEditClick={() => openModal("edit")}
+                    onDeleteClick={() => openModal("delete")}
+                  />
                 </div>
               </main>
             </div>
           </section>
         </div>
       </div>
-      {isEditModalOpen && (
+      {isModalOpen && (
         <div className="fixed inset-0 flex items-center justify-center z-50">
-          <Edit onClose={closeEditModal} />
+          <Modal type={modalType} onClose={closeModal} />
         </div>
       )}
     </>

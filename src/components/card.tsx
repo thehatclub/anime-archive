@@ -1,4 +1,4 @@
-export default function Card({ onEditClick }: any) {
+export default function Card({ onEditClick, onDeleteClick, modalStatus }: any) {
   return (
     <>
       <div className="rounded-md bg-dark-900 border-2 border-dark-800 p-4 space-y-3">
@@ -12,16 +12,24 @@ export default function Card({ onEditClick }: any) {
             <p className="text-dark-300 text-sm">Released July 2023</p>
             <h2 className="text-2xl">Anime Name</h2>
           </div>
-          <div className="btn text-md py-1 btn-dark">
-            <i className="fa-solid fa-hourglass-half"></i>
+          <div className="btn text-md py-1 btn-dark text-center">
             <span>Currently Watching</span>
           </div>
-          <div className="grid grid-cols-2 gap-2">
+          <div
+            className={`${
+              modalStatus ? "hidden" : "block"
+            } grid grid-cols-2 gap-2`}
+          >
             <button className="btn btn-primary m-0" onClick={onEditClick}>
               <i className="fa-solid fa-pen-to-square"></i>
               <span>Edit</span>
             </button>
-            <button className="btn btn-light-outline m-0">Delete</button>
+            <button
+              className="btn btn-light-outline m-0"
+              onClick={onDeleteClick}
+            >
+              Delete
+            </button>
           </div>
         </div>
       </div>

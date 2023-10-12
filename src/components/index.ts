@@ -1,6 +1,6 @@
 import Card from "./card";
-import Edit from "./edit";
 import Navbar from "./navbar";
 import Sidebar from "./sidebar";
+import Modal from "./modal";
 
-export { Card, Edit, Navbar, Sidebar };
+export { Card, Navbar, Sidebar, Modal };
