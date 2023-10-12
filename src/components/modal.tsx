@@ -54,9 +54,11 @@ function DeleteModal({ onClose }: any) {
             <div className="col-span-full text-center space-y-5">
               <h1>Are you sure you want to delete this?</h1>
               <div className="button-group justify-center">
-                <button className="btn btn-accent-outline">Yes Delete</button>
+                <button className="btn btn-accent-outline">
+                  <span>Yes Delete</span>
+                </button>
                 <button className="btn btn-dark" onClick={onClose}>
-                  Cancel
+                  <span>Cancel</span>
                 </button>
               </div>
             </div>

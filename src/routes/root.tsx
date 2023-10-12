@@ -4,15 +4,17 @@ export default function root() {
       <section className="h-screen flex justify-center items-center overscroll-none">
         <img src="/logo.png" alt="logo" className="eye" />
         <div className="relative container mx-auto flex flex-col items-center px-4 py-16 text-center md:py-32 md:px-10 lg:px-32 xl:max-w-3xl">
-          <div className="bg-dark">
+          <div className="bg-dark p-2">
             <h1 className="leading-none">
-              <span className="text-3xl sm:text-4xl">WELCOME TO THE</span>
+              <span className="text-3xl sm:text-4xl special-header">
+                WELCOME TO THE
+              </span>
               <br />
               <span className="text-4xl sm:text-5xl underline text-accent">
                 ANIME ARCHIVE
               </span>
             </h1>
-            <p className="px-8 mt-8 mb-2 text-lg">
+            <p className="mt-8 mb-2 text-md md:text-lg">
               A place where you can store your progress offline
             </p>
           </div>

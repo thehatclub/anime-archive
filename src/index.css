@@ -20,6 +20,7 @@
   li {
     @apply btn-dark rounded-md;
   }
+
   .form-control {
     @apply py-2 px-5 text-sm rounded-md bg-dark;
   }
@@ -30,10 +31,15 @@
   .eye {
     z-index: 0;
     position: absolute;
-    top: 20%;
+    top: 50%;
     left: 50%;
-    transform: translate(-50%, -90%) rotate(150deg);
-    width: 30rem;
+    transform: translate(-50%, -90%);
+    width: 20rem;
+  }
+  .special-header {
+    -webkit-text-stroke-width: 1px;
+    -webkit-text-stroke-color: #fff;
+    color: transparent;
   }
 
   .sidebar {
@@ -42,6 +48,9 @@
 
   .button-group {
     @apply col-span-full flex flex-wrap gap-4;
+  }
+  .btn span {
+    @apply underline;
   }
 
   .btn {

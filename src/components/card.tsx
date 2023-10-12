@@ -13,7 +13,7 @@ export default function Card({ onEditClick, onDeleteClick, modalStatus }: any) {
             <h2 className="text-2xl">Anime Name</h2>
           </div>
           <div className="btn text-md py-1 btn-dark text-center">
-            <span>Currently Watching</span>
+            Currently Watching
           </div>
           <div
             className={`${
@@ -28,7 +28,7 @@ export default function Card({ onEditClick, onDeleteClick, modalStatus }: any) {
               className="btn btn-light-outline m-0"
               onClick={onDeleteClick}
             >
-              Delete
+              <span>Delete</span>
             </button>
           </div>
         </div>
