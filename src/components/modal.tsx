@@ -1,5 +1,23 @@
 import { Card } from ".";
 
+function ListOpen({ onClose }: any) {
+  return (
+    <>
+      <div className="bg-dark-900 max-w-screen max-h-screen">
+        <div className="button-group">
+          <button className="btn btn-accent" onClick={onClose}>
+            <i className="fa-solid fa-network-wired"></i> <span>Open MAL</span>
+          </button>
+          <button className="btn btn-light-outline" onClick={onClose}>
+            <i className="fa-solid fa-file-signature"></i>
+            <span>Open File</span>
+          </button>
+        </div>
+      </div>
+    </>
+  );
+}
+
 function EditModal({ onClose }: any) {
   return (
     <div className="bg-dark-900 md:border-2 md:border-dark-800 rounded-lg max-w-full max-h-full overflow-y-auto hide-scroll p-6">
@@ -69,16 +87,22 @@ function DeleteModal({ onClose }: any) {
   );
 }
 
-function Modal({ type, onClose }: any) {
+export default function Modal({ type, onClose }: any) {
   return (
-    <div className="fixed md:static top-0 left-0 w-full h-full md:w-auto md:h-auto md:bg-opacity-0 flex items-center justify-center bg-dark-900 md:m-6">
-      {type === "edit" ? (
-        <EditModal onClose={onClose} />
-      ) : type === "delete" ? (
-        <DeleteModal onClose={onClose} />
+    <>
+      {type === "listOpen" ? (
+        <div className="fixed top-0 left-0 w-screen h-screen flex items-center justify-center bg-dark-900">
+          <ListOpen onClose={onClose} />
+        </div>
+      ) : type !== "listOpen" ? (
+        <div className="fixed md:static top-0 left-0 w-full h-full md:w-auto md:h-auto md:bg-opacity-0 flex items-center justify-center bg-dark-900 md:m-6">
+          {type === "edit" ? (
+            <EditModal onClose={onClose} />
+          ) : type === "delete" ? (
+            <DeleteModal onClose={onClose} />
+          ) : null}
+        </div>
       ) : null}
-    </div>
+    </>
   );
 }
-
-export default Modal;

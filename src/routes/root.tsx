@@ -23,15 +23,14 @@ export default function root() {
               <i className="fa-solid fa-right-to-bracket"></i>
               <span>Sign In</span>
             </a>
-            <a className="btn btn-dark">
-              <i className="fa-solid fa-arrow-up-right-from-square"></i>
-              <span>My Anime List</span>
+            <a className="btn btn-dark" href="/wizard">
+              <i className="fa-solid fa-hat-wizard"></i> <span>Wizard</span>
             </a>
           </div>
-          <div className="button-group justify-center">
+          <div className=" button-group justify-center">
             <a href="wizard" className="btn btn-primary">
               <i className="fa-solid fa-hat-wizard"></i>
-              <span>List Wizard</span>
+              <span>MAL Wizard</span>
             </a>
             <a href="#" className="btn btn-dark">
               <i className="fa-solid fa-right-from-bracket"></i>

@@ -15,6 +15,11 @@ export default function Wizard() {
     setIsModalOpen(false);
   };
 
+  React.useEffect(() => {
+    setModalType("listOpen");
+    setIsModalOpen(true);
+  }, []);
+
   return (
     <>
       <div className={isBlurred ? "blur" : ""}>
@@ -27,6 +32,26 @@ export default function Wizard() {
             <div className="grid gap-5 p-4 m-2">
               <main className="col-span-full p-4">
                 <div className="flex flex-wrap gap-2 justify-center">
+                  <Card
+                    onEditClick={() => openModal("edit")}
+                    onDeleteClick={() => openModal("delete")}
+                  />
+                  <Card
+                    onEditClick={() => openModal("edit")}
+                    onDeleteClick={() => openModal("delete")}
+                  />
+                  <Card
+                    onEditClick={() => openModal("edit")}
+                    onDeleteClick={() => openModal("delete")}
+                  />
+                  <Card
+                    onEditClick={() => openModal("edit")}
+                    onDeleteClick={() => openModal("delete")}
+                  />
+                  <Card
+                    onEditClick={() => openModal("edit")}
+                    onDeleteClick={() => openModal("delete")}
+                  />
                   <Card
                     onEditClick={() => openModal("edit")}
                     onDeleteClick={() => openModal("delete")}

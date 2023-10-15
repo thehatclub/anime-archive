@@ -12,9 +12,7 @@ export default function Card({ onEditClick, onDeleteClick, modalStatus }: any) {
             <p className="text-dark-300 text-sm">Released July 2023</p>
             <h2 className="text-2xl">Anime Name</h2>
           </div>
-          <div className="btn text-md py-1 btn-dark text-center">
-            Currently Watching
-          </div>
+          <div className="btn-sm">Currently Watching</div>
           <div
             className={`${
               modalStatus ? "hidden" : "block"

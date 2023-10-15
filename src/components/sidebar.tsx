@@ -33,14 +33,14 @@ export default function Sidebar() {
               type="search"
               name="Search"
               placeholder="Search..."
-              className="pl-10 w-full form-control"
+              className="pl-10 w-full form-control border-dark-600"
             />
           </div>
 
-          <div className="divide-y">
+          <div className="divide-y text-dark-600">
             <ul className="grid grid-cols-2 gap-2 lg:gap-0 lg:grid-cols-1 items-center pt-2 pb-4 text-sm text-center lg:text-start">
               <div className="space-y-1">
-                <li className="btn-primary-outline">
+                <li className="btn-light-outline">
                   <a href="#" className="list-item">
                     <span>All</span>
                   </a>
@@ -76,11 +76,18 @@ export default function Sidebar() {
                 </li>
               </div>
             </ul>
-            <ul className="pt-4 pb-2 space-y-1 text-sm text-center lg:text-start">
-              <li>
+
+            <ul className="grid grid-cols-2 gap-2 items-center pt-4 pb-2 text-sm text-center">
+              <li className="bg-dark-800">
                 <a href="#" className="list-item">
-                  <i className="fa-solid fa-right-from-bracket"></i>
-                  <span>Sign Out</span>
+                  <i className="fa-solid fa-rotate"></i>
+                  <span>Sync MAL</span>
+                </a>
+              </li>
+              <li className="bg-dark-800">
+                <a href="#" className="list-item">
+                  <i className="fa-solid fa-download"></i>
+                  <span>Export</span>
                 </a>
               </li>
             </ul>

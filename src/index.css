@@ -54,10 +54,16 @@
   }
 
   .btn {
-    @apply flex justify-center space-x-2 items-baseline rounded-md px-8 py-3 text-lg uppercase w-full lg:w-auto;
+    @apply flex justify-center space-x-2 items-baseline rounded-md px-8 py-3 text-lg uppercase w-full lg:w-auto text-center;
+  }
+  .btn-sm {
+    @apply btn text-md py-1 btn-dark;
   }
   .btn-dark {
     @apply text-light border-2 border-dark-800;
+  }
+  .btn-light {
+    @apply text-dark bg-light;
   }
   .btn-primary {
     @apply bg-primary text-dark;
@@ -84,5 +90,23 @@
   .hide-scroll {
     -ms-overflow-style: none; /* IE and Edge */
     scrollbar-width: none; /* Firefox */
+  }
+
+  .icon {
+    display: inline-flex;
+    align-self: center;
+  }
+
+  .icon svg,
+  .icon img {
+    height: 1em;
+    width: 1em;
+    fill: currentColor;
+  }
+
+  .icon.baseline svg,
+  .icon img {
+    top: 0.125em;
+    position: relative;
   }
 }
