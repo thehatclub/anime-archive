@@ -1,4 +1,4 @@
-# <img src="./public/logo.png" alt="drawing" width="50" /> Anime Archive
+# <img src="./client/public/logo.png" alt="drawing" width="50" /> Anime Archive
 
 Anime Archive is a web application developed in React and Tailwind CSS, designed to serve as a tool for reformatting anime progress data to fit the standard for My Anime List (MAL). This app provides users with the capability to store their anime progress offline, sync with their MAL account, and save data as a raw file to their computer for personal use.
 
