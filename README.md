@@ -22,9 +22,9 @@ Follow these steps to get Anime Archive up and running on your local machine:
 
 1. Clone the repository: `git clone https://github.com/thehatclub/anime-archive.git`
 
-2. Install dependencies: `npm install`
+2. Install dependencies: `npm app-install`
 
-3. Start the development server: `npm start`
+3. Start the development server: `npm run app-dev`
 
 ## License
 

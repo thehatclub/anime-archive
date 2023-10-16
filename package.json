@@ -4,8 +4,8 @@
   "description": "Anime Archive is a Full-Stack web application developed in React, Tailwind CSS, and express, designed to serve as a tool for reformatting anime progress data to fit the standard for My Anime List (MAL). This app provides users with the capability to store your anime progress offline, sync with your MAL account, and save data as a raw file to your computer for personal use.",
   "main": "server/index.js",
   "scripts": {
-    "client-install": "cd client && npm i",
-    "app": "cd client && npm run dev && cd .. && cd server && npm run start"
+    "app-install": "cd client && npm i && cd .. && cd server && npm i",
+    "app-dev": "cd client && npm run dev && cd .. && cd server && npm run start"
   },
   "keywords": [],
   "author": "Tanner Smiley",
