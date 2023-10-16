@@ -5,7 +5,8 @@
   "main": "server/index.js",
   "scripts": {
     "app-install": "cd client && npm i && cd .. && cd server && npm i",
-    "app-dev": "cd client && npm run dev && cd .. && cd server && npm run start"
+    "client-dev": "cd client && npm run dev",
+    "server-dev": "cd server && npm run start"
   },
   "keywords": [],
   "author": "Tanner Smiley",
