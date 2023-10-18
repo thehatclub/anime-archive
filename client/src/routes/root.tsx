@@ -6,6 +6,7 @@ export default function root() {
   const apiURL = import.meta.env.DEV
     ? import.meta.env.VITE_REACT_APP_API_URL
     : import.meta.env.VITE_REACT_APP_API_URL_PROD;
+  console.log(apiURL);
 
   useEffect(() => {
     axios
