@@ -3,10 +3,13 @@ import axios from "axios";
 
 export default function root() {
   const [data, setData] = useState([]);
+  const apiURL = import.meta.env.DEV
+    ? import.meta.env.VITE_REACT_APP_API_URL
+    : import.meta.env.VITE_REACT_APP_API_URL_PROD;
 
   useEffect(() => {
     axios
-      .get("http://localhost:5000/api")
+      .get(apiURL)
       .then((response) => {
         setData(response.data.files);
       })
