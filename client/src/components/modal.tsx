@@ -23,8 +23,11 @@ function ListOpen({ onClose, file, setFile, setXmlData }: any) {
     const formData = new FormData();
     formData.append("file", file);
 
+    const apiURL = import.meta.env.DEV
+      ? "http://localhost:3000/upload"
+      : import.meta.env.VITE_REACT_APP_API_URL_PROD;
     axios
-      .post("http://localhost:3000/upload", formData)
+      .post(apiURL, formData)
       .then((response) => {
         // Store the XML data in state or a variable
         setXmlData(response.data);

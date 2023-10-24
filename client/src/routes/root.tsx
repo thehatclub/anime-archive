@@ -1,20 +1,4 @@
-import { useState, useEffect } from "react";
-import axios from "axios";
-
 export default function root() {
-  const [data, setData] = useState([]);
-
-  useEffect(() => {
-    axios
-      .get("http://localhost:8000/api")
-      .then((response) => {
-        setData(response.data.files);
-      })
-      .catch((error) => {
-        console.error("Error fetching data:", error);
-      });
-  }, []);
-
   return (
     <>
       <section className="h-screen flex justify-center items-center overscroll-none">
