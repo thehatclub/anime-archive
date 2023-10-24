@@ -6,7 +6,7 @@ export default function root() {
 
   useEffect(() => {
     axios
-      .get("http://localhost:5000/api")
+      .get("http://localhost:8000/api")
       .then((response) => {
         setData(response.data.files);
       })
@@ -44,6 +44,15 @@ export default function root() {
               </a>
             </div>
             <div className="button-group justify-center">
+              <div className="flex items-center py-2 px-4 space-x-4 rounded-md bg-dark-950 border-2 border-dashed">
+                <div className="flex items-center self-stretch justify-center">
+                  <i className="fa-solid fa-circle-info"></i>
+                </div>
+                <span className="text-sm">
+                  Anime archive is in pre-beta. XML reformatting is currently
+                  available only for Zoro proxy domains.
+                </span>
+              </div>
               <a href="wizard" className="btn btn-primary">
                 <i className="fa-solid fa-hat-wizard"></i>
                 <span>MAL Wizard</span>
@@ -56,14 +65,6 @@ export default function root() {
           </div>
         </div>
       </section>
-      <div>
-        <h1>Data from the backend:</h1>
-        <ul>
-          {data.map((file, index) => (
-            <li key={index}>{file}</li>
-          ))}
-        </ul>
-      </div>
     </>
   );
 }

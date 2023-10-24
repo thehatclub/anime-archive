@@ -5,6 +5,7 @@ import "./index.css";
 import Root from "./routes/root";
 import ErrorPage from "./error-page";
 import Wizard from "./routes/wizard";
+import Test from "./routes/test";
 
 const router = createBrowserRouter([
   {
@@ -15,6 +16,11 @@ const router = createBrowserRouter([
   {
     path: "/wizard",
     element: <Wizard />,
+    errorElement: <ErrorPage />,
+  },
+  {
+    path: "/test",
+    element: <Test />,
     errorElement: <ErrorPage />,
   },
 ]);

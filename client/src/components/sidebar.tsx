@@ -1,4 +1,27 @@
-export default function Sidebar() {
+export default function Sidebar({ xmlData }: any) {
+  //Function to handle fetching and storing Blob
+  const downloadXml = () => {
+    console.log("downloadXml function called"); // Add this line
+
+    if (xmlData) {
+      // Create a Blob from the XML data
+      const blob = new Blob([xmlData], { type: "application/xml" });
+
+      // Create a temporary URL for the Blob
+      const url = URL.createObjectURL(blob);
+
+      // Create an anchor element to trigger the download
+      const a = document.createElement("a");
+      a.href = url;
+      a.download = "data.xml";
+
+      // Trigger the download
+      a.click();
+
+      // Clean up the temporary URL
+      URL.revokeObjectURL(url);
+    }
+  };
   return (
     <>
       <div className="lg:fixed h-auto lg:h-screen bg-dark-900 lg:border-r-2 border-dark-800 lg:p-5">
@@ -85,7 +108,7 @@ export default function Sidebar() {
                 </a>
               </li>
               <li className="bg-dark-800">
-                <a href="#" className="list-item">
+                <a href="#" onClick={downloadXml} className="list-item">
                   <i className="fa-solid fa-download"></i>
                   <span>Export</span>
                 </a>

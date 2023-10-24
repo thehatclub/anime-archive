@@ -1,7 +1,7 @@
 import React from "react";
 import { Sidebar } from ".";
 
-export default function Navbar() {
+export default function Navbar({ xmlData }: any) {
   const [isMenuOpen, setIsMenuOpen] = React.useState(false);
 
   const toggleMenu = () => {
@@ -18,7 +18,7 @@ export default function Navbar() {
           </a>
 
           <div className={`${isMenuOpen ? "block" : "hidden"} lg:hidden`}>
-            <Sidebar />
+            <Sidebar xmlData={xmlData} />
           </div>
           <button className="lg:hidden -my-8" onClick={toggleMenu}>
             <i
