@@ -1,7 +1,7 @@
 // Importing required modules
 const express = require("express");
 const multer = require("multer");
-const libxmljs = require("libxmljs2");
+const libxmljs = require("libxmljs");
 const cors = require("cors");
 const fs = require("fs");
 
