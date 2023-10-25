@@ -24,8 +24,8 @@ function ListOpen({ onClose, file, setFile, setXmlData }: any) {
     formData.append("file", file);
 
     const apiURL = import.meta.env.DEV
-      ? "http://localhost:3000/upload"
-      : import.meta.env.VITE_REACT_APP_API_URL_PROD;
+      ? import.meta.env.VITE_API_URL
+      : import.meta.env.VITE_PROD_URL;
     axios
       .post(apiURL, formData)
       .then((response) => {
