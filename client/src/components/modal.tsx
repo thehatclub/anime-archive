@@ -27,7 +27,7 @@ function ListOpen({ onClose, file, setFile, setXmlData }: any) {
       ? import.meta.env.VITE_API_URL
       : import.meta.env.VITE_PROD_URL;
     axios
-      .post(apiURL, formData)
+      .post(`${apiURL}/upload`, formData)
       .then((response) => {
         // Store the XML data in state or a variable
         setXmlData(response.data);
