@@ -1,26 +1,28 @@
 // Importing required modules
+// require("dotenv").config();
 const express = require("express");
-const multer = require("multer");
 const libxmljs = require("libxmljs");
 const cors = require("cors");
 const fs = require("fs");
+const fileUpload = require("express-fileupload");
 
-// Initializing Express app and multer with a destination for uploaded files
+// Initialize modules
 const app = express();
-const upload = multer({ dest: "uploads/" });
-
-// Setting the port to an environment variable or a default value
-const port = process.env.PORT || 3000;
-
-// Using CORS middleware to enable Cross-Origin Resource Sharing
 app.use(cors());
+app.use(fileUpload());
 
-// Starting the server and logging the port it's running on
-app.listen(port, () => {
-  console.log(`Server is running on port ${port}`);
-});
+//Initialize AWS
+// const { S3Client, PutObjectCommand } = require("@aws-sdk/client-s3");
 
-// Function to process the XML file to a standard format
+// const s3Config = {
+//   accessKeyId: process.env.AWS_ACCESS_KEY,
+//   secretAccessKey: process.env.AWS_ACCESS_SECRET,
+//   region: "us-east-2",
+// };
+
+// const s3 = new S3Client(s3Config);
+
+// Function to process the XML file to a MAL format
 async function processXML(xmlData) {
   // Parsing the XML data
   const xmlDoc = libxmljs.parseXml(xmlData);
@@ -66,34 +68,37 @@ async function processXML(xmlData) {
   }
 }
 
-// Function to delete the file after processing
-function deleteCache(req) {
-  fs.unlink(req.file.path, (err) => {
-    if (err) {
-      console.error(`Error deleting file: ${err}`);
-    } else {
-      console.log("File deleted successfully");
-    }
-  });
-}
-
-// POST endpoint to upload the file, process it, and send the response
-app.post("/upload", upload.single("file"), async (req, res) => {
+// POST endpoint to handle xml file upload
+app.post("/upload", async (req, res) => {
+  const file = req.files.file;
+  const fileName = req.files.file.name;
+  // const bucketParams = {
+  //   Bucket: process.env.BUCKET,
+  //   Key: fileName,
+  //   Body: file.data,
+  // };
   try {
-    // Reading the uploaded file
-    const xmlData = fs.readFileSync(req.file.path, "utf8");
-
+    //Upload XML file to AWS Bucket
+    // const data = await s3.send(new PutObjectCommand(bucketParams));
     // Processing the XML data
-    const newXmlData = await processXML(xmlData);
+    const newXmlData = await processXML(file.data);
 
     // Sending the new XML data as the response
+    res.set("Content-type", "application/xml");
     res.send(newXmlData);
-
-    // Deleting the file after processing
-    deleteCache(req);
   } catch (error) {
-    console.error(`Error processing file: ${error}`);
-    res.status(500).send(`Error processing file: ${error}`);
-    deleteCache(req);
+    if (error.code === "NoSuchKey") {
+      console.log(`No such key ${fileName}`);
+      res.sendStatus(404).end();
+    } else {
+      console.error(`Error processing file: ${error}`);
+      res.status(500).send(`Error processing file: ${error}`);
+    }
   }
+});
+
+// Starting the server
+const port = process.env.PORT || 3000;
+app.listen(port, () => {
+  console.log(`Server is running on port ${port}`);
 });
