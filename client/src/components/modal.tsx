@@ -1,5 +1,5 @@
 // Importing required dependencies
-import { Card } from ".";
+import { Card, Loading } from ".";
 import { useState, ChangeEvent, FormEvent } from "react";
 import axios from "axios";
 
@@ -7,6 +7,7 @@ import axios from "axios";
 function ListOpen({ onClose, file, setFile, setXmlData }: any) {
   // State for managing the visibility of the form
   const [isHidden, setIsHidden] = useState(true);
+  const [isLoading, setIsLoading] = useState(false);
 
   // Function to handle file input change
   const handleFileChange = (e: ChangeEvent<HTMLInputElement>) => {
@@ -18,7 +19,7 @@ function ListOpen({ onClose, file, setFile, setXmlData }: any) {
   const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     if (!file) return;
-
+    setIsLoading(true);
     // Create a FormData instance
     const formData = new FormData();
     formData.append("file", file);
@@ -32,6 +33,7 @@ function ListOpen({ onClose, file, setFile, setXmlData }: any) {
         // Store the XML data in state or a variable
         setXmlData(response.data);
         onClose();
+        setIsLoading(false);
       })
       .catch((error) => {
         console.log("Error downloading XML data: " + error);
@@ -40,40 +42,47 @@ function ListOpen({ onClose, file, setFile, setXmlData }: any) {
 
   // Render the form
   return (
-    <form onSubmit={handleSubmit}>
-      <div
-        className={`${
-          isHidden ? "hidden" : ""
-        } button-group place-content-center p-5`}
+    <>
+      {isLoading ? <Loading /> : null}
+      <form
+        onSubmit={handleSubmit}
+        className={`${isLoading ? "opacity-30" : ""}`}
       >
-        <input
-          type="file"
-          onChange={handleFileChange}
-          className="btn border-2 border-dashed"
-        />
-        <button type="submit" className="btn btn-accent">
-          Submit
-        </button>
-      </div>
-      <div
-        className={`${
-          isHidden ? "" : "hidden"
-        } bg-dark-900 max-w-screen max-h-screen`}
-      >
-        <div className="button-group">
-          <button className="btn btn-accent" onClick={onClose}>
-            <i className="fa-solid fa-network-wired"></i> <span>Open MAL</span>
-          </button>
-          <button
-            className="btn btn-light-outline"
-            onClick={() => setIsHidden(!isHidden)}
-          >
-            <i className="fa-solid fa-file-signature"></i>
-            <span>Open File</span>
+        <div
+          className={`${
+            isHidden ? "hidden" : ""
+          } button-group place-content-center p-5`}
+        >
+          <input
+            type="file"
+            onChange={handleFileChange}
+            className="btn border-2 border-dashed"
+          />
+          <button type="submit" className="btn btn-accent">
+            Submit
           </button>
         </div>
-      </div>
-    </form>
+        <div
+          className={`${
+            isHidden ? "" : "hidden"
+          } bg-dark-900 max-w-screen max-h-screen`}
+        >
+          <div className="button-group">
+            <button className="btn btn-accent" onClick={onClose}>
+              <i className="fa-solid fa-network-wired"></i>{" "}
+              <span>Open MAL</span>
+            </button>
+            <button
+              className="btn btn-light-outline"
+              onClick={() => setIsHidden(!isHidden)}
+            >
+              <i className="fa-solid fa-file-signature"></i>
+              <span>Open File</span>
+            </button>
+          </div>
+        </div>
+      </form>
+    </>
   );
 }
 
@@ -152,6 +161,7 @@ export default function Modal({
   file,
   setFile,
   setXmlData,
+  loading,
 }: any) {
   return (
     <>
@@ -162,6 +172,7 @@ export default function Modal({
             setFile={setFile}
             onClose={onClose}
             setXmlData={setXmlData}
+            loading={loading}
           />
         </div>
       ) : type !== "listOpen" ? (
