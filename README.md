@@ -37,6 +37,7 @@ If you have any questions or feedback, feel free to reach out:
 - GitHub Issues: [Anime Archive Issues](https://github.com/thehatclub/anime-archive/issues)
 
 ---
+[![Netlify Status](https://api.netlify.com/api/v1/badges/c7314454-998d-4b4c-af57-e74381940497/deploy-status)](https://app.netlify.com/sites/sweet-elf-1ba41c/deploys)
 
 [![GitHub Stars](https://img.shields.io/github/stars/thehatclub/anime-archive.svg)](https://github.com/thehatclub/anime-archive/stargazers)
 [![GitHub Forks](https://img.shields.io/github/forks/thehatclub/anime-archive.svg)](https://github.com/thehatclub/anime-archive/network)
