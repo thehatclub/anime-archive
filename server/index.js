@@ -70,14 +70,14 @@ async function processXML(xmlData) {
 
 // POST endpoint to handle xml file upload
 app.post("/upload", async (req, res) => {
-  const file = req.files.file;
-  const fileName = req.files.file.name;
-  // const bucketParams = {
-  //   Bucket: process.env.BUCKET,
-  //   Key: fileName,
-  //   Body: file.data,
-  // };
   try {
+    const file = req.files.file;
+    const fileName = req.files.file.name;
+    // const bucketParams = {
+    //   Bucket: process.env.BUCKET,
+    //   Key: fileName,
+    //   Body: file.data,
+    // };
     //Upload XML file to AWS Bucket
     // const data = await s3.send(new PutObjectCommand(bucketParams));
     // Processing the XML data

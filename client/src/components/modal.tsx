@@ -3,7 +3,6 @@ import { Card, Loading } from ".";
 import { useState, ChangeEvent, FormEvent } from "react";
 import axios from "axios";
 
-// ListOpen component accepts file, setFile function and onClose function as props
 function ListOpen({ onClose, file, setFile, setXmlData }: any) {
   // State for managing the visibility of the form
   const [isHidden, setIsHidden] = useState(true);
@@ -30,13 +29,14 @@ function ListOpen({ onClose, file, setFile, setXmlData }: any) {
     axios
       .post(`${apiURL}/upload`, formData)
       .then((response) => {
-        // Store the XML data in state or a variable
         setXmlData(response.data);
         onClose();
         setIsLoading(false);
       })
       .catch((error) => {
         console.log("Error downloading XML data: " + error);
+        setIsLoading(false);
+        alert("Error downloading XML data: " + error);
       });
   };
 
@@ -68,7 +68,7 @@ function ListOpen({ onClose, file, setFile, setXmlData }: any) {
           } bg-dark-900 max-w-screen max-h-screen`}
         >
           <div className="button-group">
-            <button className="btn btn-accent" onClick={onClose}>
+            <button className="btn btn-accent" onClick={onClose} disabled>
               <i className="fa-solid fa-network-wired"></i>{" "}
               <span>Open MAL</span>
             </button>
@@ -88,11 +88,11 @@ function ListOpen({ onClose, file, setFile, setXmlData }: any) {
 
 function EditModal({ onClose }: any) {
   return (
-    <div className="bg-dark-900 md:border-2 md:border-dark-800 rounded-lg max-w-full max-h-full overflow-y-auto hide-scroll p-6">
+    <div className="max-w-full max-h-full overflow-y-auto hide-scroll ">
       <form action="post">
-        <fieldset className="grid grid-cols-1 lg:grid-cols-4 gap-5 items-center">
+        <fieldset className="button-group place-content-center p-6">
           <Card modalStatus={true} />
-          <div className="grid grid-cols-6 col-span-full lg:col-span-3 gap-5">
+          <div className="grid col-span-full space-y-5">
             <div className="col-span-full">
               <label htmlFor="status" className="text-sm">
                 Status
@@ -132,21 +132,19 @@ function EditModal({ onClose }: any) {
 
 function DeleteModal({ onClose }: any) {
   return (
-    <div className="bg-dark-900 md:border-2 md:border-dark-800 rounded-lg max-w-full max-h-full overflow-y-auto hide-scroll p-6">
+    <div className="max-w-screen max-h-screen overflow-y-auto hide-scroll">
       <form action="post">
-        <fieldset className="grid grid-cols-1 lg:grid-cols-4 gap-5 items-center">
-          <Card modalStatus={true} />
-          <div className="grid grid-cols-6 col-span-full lg:col-span-3 gap-5">
-            <div className="col-span-full text-center space-y-5">
-              <h1>Are you sure you want to delete this?</h1>
-              <div className="button-group justify-center">
-                <button className="btn btn-accent-outline">
-                  <span>Yes Delete</span>
-                </button>
-                <button className="btn btn-dark" onClick={onClose}>
-                  <span>Cancel</span>
-                </button>
-              </div>
+        <fieldset className="button-group place-content-center p-6">
+          <Card />
+          <div className="text-center space-y-5">
+            <h1>Are you sure you want to delete this?</h1>
+            <div className="button-group justify-center">
+              <button className="btn btn-accent-outline">
+                <span>Yes Delete</span>
+              </button>
+              <button className="btn btn-dark" onClick={onClose}>
+                <span>Cancel</span>
+              </button>
             </div>
           </div>
         </fieldset>
@@ -161,29 +159,28 @@ export default function Modal({
   file,
   setFile,
   setXmlData,
-  loading,
 }: any) {
+  enum ModalType {
+    ListOpen = "listOpen",
+    Edit = "edit",
+    Delete = "delete",
+  }
   return (
     <>
-      {type == "listOpen" ? (
-        <div className="fixed top-0 left-0 w-screen h-screen flex items-center justify-center bg-dark-900">
+      <div className="fixed top-0 left-0 w-screen h-screen flex items-center justify-center bg-dark-900">
+        {type == ModalType.ListOpen ? (
           <ListOpen
             file={file}
             setFile={setFile}
             onClose={onClose}
             setXmlData={setXmlData}
-            loading={loading}
           />
-        </div>
-      ) : type !== "listOpen" ? (
-        <div className="fixed md:static top-0 left-0 w-full h-full md:w-auto md:h-auto md:bg-opacity-0 flex items-center justify-center bg-dark-900 md:m-6">
-          {type === "edit" ? (
-            <EditModal onClose={onClose} />
-          ) : type === "delete" ? (
-            <DeleteModal onClose={onClose} />
-          ) : null}
-        </div>
-      ) : null}
+        ) : type === ModalType.Edit ? (
+          <EditModal onClose={onClose} />
+        ) : type === ModalType.Delete ? (
+          <DeleteModal onClose={onClose} />
+        ) : null}
+      </div>
     </>
   );
 }
