@@ -27,7 +27,7 @@ function ListOpen({ onClose, file, setFile, setXmlData }: any) {
       ? import.meta.env.VITE_API_URL
       : import.meta.env.VITE_PROD_URL;
     axios
-      .post(`${apiURL}/upload`, formData)
+      .post(`${apiURL}/convert`, formData)
       .then((response) => {
         setXmlData(response.data);
         onClose();
