@@ -1,32 +1,35 @@
 const express = require("express");
 const router = express.Router();
-const { converter, parser } = require("./utils/utils");
+const { converter } = require("./utils/utils");
 
-router.post("/convert", async (req, res) => {
-  try {
-    //set required file params
-    const file = req.files.file;
-    const fileName = req.files.file.name;
+const routes = {
+  convert: async (req, res) => {
+    try {
+      // Access XML data directly from req.body
+      const result = await converter(req.body);
 
-    // Convert the XML data
-    const newXmlData = await converter(file.data);
-
-    // Sending the new XML data as the response
-    res.set("Content-type", "application/xml");
-    res.send(newXmlData);
-  } catch (error) {
-    if (error.code === "NoSuchKey") {
-      console.log(`No such key ${fileName}`);
-      res.sendStatus(404).end();
-    } else {
-      console.error(`Error processing file: ${error}`);
-      res.status(500).send(`Error processing file: ${error}`);
+      if (result.success) {
+        res.json({
+          success: true,
+          message: "JSON is valid",
+          data: result.data,
+        });
+      } else {
+        res.status(400).json({ success: false, message: "Invalid JSON" });
+      }
+    } catch (error) {
+      console.error(error);
+      res
+        .status(500)
+        .json({ success: false, message: "Internal Server Error" });
     }
-  }
-});
+  },
+  parser: async (req, res) => {
+    // Your existing code...
+  },
+};
 
-router.get("/parser", async (req, res) => {
-  parser();
-});
+router.post("/convert", routes.convert);
+router.get("/parser", routes.parser);
 
-module.exports = router;
+module.exports = routes;

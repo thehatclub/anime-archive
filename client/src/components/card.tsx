@@ -1,22 +1,7 @@
-export default function Card({
-  onEditClick,
-  onDeleteClick,
-  modalStatus,
-  xmlData,
-}: any) {
-  const parser = new DOMParser();
-  const xmlDoc = parser.parseFromString(xmlData, "application/xml");
-  const animeElements = xmlDoc.getElementsByTagName("anime");
-  const animeData = Array.from(animeElements).map((animeElement) => {
-    const seriesAnimedbId =
-      animeElement.getElementsByTagName("series_animedb_id")[0].textContent;
-    const myStatus =
-      animeElement.getElementsByTagName("my_status")[0].textContent;
-    return { seriesAnimedbId, myStatus };
-  });
+export default function Card({ onEditClick, onDeleteClick, xmlData }: any) {
   return (
     <>
-      {animeData.map((anime, index) => (
+      {/* {animeData.map((anime, index) => (
         <div
           key={index}
           className="rounded-md bg-dark-900 border-2 border-dark-800 p-4 space-y-3"
@@ -32,11 +17,7 @@ export default function Card({
               <h2 className="text-2xl">Anime Name</h2>
             </div>
             <div className="btn-sm">{anime.myStatus}</div>
-            <div
-              className={`${
-                modalStatus ? "hidden" : "block"
-              } grid grid-cols-2 gap-2`}
-            >
+            <div className={"grid grid-cols-2 gap-2"}>
               <button className="btn btn-primary m-0" onClick={onEditClick}>
                 <i className="fa-solid fa-pen-to-square"></i>
                 <span>Edit</span>
@@ -50,7 +31,7 @@ export default function Card({
             </div>
           </div>
         </div>
-      ))}
+      ))} */}
     </>
   );
 }

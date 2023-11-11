@@ -1,43 +1,49 @@
 // Importing required dependencies
 import { Card, Loading } from ".";
-import { useState, ChangeEvent, FormEvent } from "react";
+import { useState } from "react";
 import axios from "axios";
 
-function ListOpen({ onClose, file, setFile, setXmlData }: any) {
+function ListOpen({ toggleModal, setXmlData, xmlData }: any) {
   // State for managing the visibility of the form
   const [isHidden, setIsHidden] = useState(true);
   const [isLoading, setIsLoading] = useState(false);
 
-  // Function to handle file input change
-  const handleFileChange = (e: ChangeEvent<HTMLInputElement>) => {
-    // Set the selected file to state
-    setFile(e.target.files ? e.target.files[0] : null);
-  };
-
   // Function to handle form submission
-  const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
-    if (!file) return;
-    setIsLoading(true);
-    // Create a FormData instance
-    const formData = new FormData();
-    formData.append("file", file);
+  const handleSubmit = async (event: any) => {
+    event.preventDefault();
+    if (!xmlData) return;
 
-    const apiURL = import.meta.env.DEV
-      ? import.meta.env.VITE_API_URL
-      : import.meta.env.VITE_PROD_URL;
-    axios
-      .post(`${apiURL}/convert`, formData)
-      .then((response) => {
-        setXmlData(response.data);
-        onClose();
+    setIsLoading(true);
+
+    // Read the content of the XML file
+    const reader = new FileReader();
+    reader.onload = async (e) => {
+      const xmlContent = e.target?.result as string;
+
+      try {
+        const apiURL = import.meta.env.DEV
+          ? import.meta.env.VITE_API_URL
+          : import.meta.env.VITE_PROD_URL;
+
+        const response = await axios.post(`${apiURL}/convert`, xmlContent, {
+          headers: {
+            "Content-Type": "application/xml",
+          },
+        });
+
+        window.open(response.data);
         setIsLoading(false);
-      })
-      .catch((error) => {
-        console.log("Error downloading XML data: " + error);
+        toggleModal();
+        return response.data;
+      } catch (error) {
+        console.log("Error uploading XML data: " + error);
+        alert("Error uploading XML data: " + error);
         setIsLoading(false);
-        alert("Error downloading XML data: " + error);
-      });
+      }
+    };
+
+    // Read the content of the file as text
+    reader.readAsText(xmlData);
   };
 
   // Render the form
@@ -55,7 +61,9 @@ function ListOpen({ onClose, file, setFile, setXmlData }: any) {
         >
           <input
             type="file"
-            onChange={handleFileChange}
+            onChange={(e) =>
+              setXmlData(e.target.files ? e.target.files[0] : null)
+            }
             className="btn border-2 border-dashed"
           />
           <button type="submit" className="btn btn-accent">
@@ -68,7 +76,7 @@ function ListOpen({ onClose, file, setFile, setXmlData }: any) {
           } bg-dark-900 max-w-screen max-h-screen`}
         >
           <div className="button-group">
-            <button className="btn btn-accent" onClick={onClose} disabled>
+            <button className="btn btn-accent" onClick={toggleModal} disabled>
               <i className="fa-solid fa-network-wired"></i>{" "}
               <span>Open MAL</span>
             </button>
@@ -86,7 +94,7 @@ function ListOpen({ onClose, file, setFile, setXmlData }: any) {
   );
 }
 
-function EditModal({ onClose }: any) {
+function EditModal({ toggleModal }: any) {
   return (
     <div className="max-w-full max-h-full overflow-y-auto hide-scroll ">
       <form action="post">
@@ -119,7 +127,10 @@ function EditModal({ onClose }: any) {
               <button className="btn btn-light-outline">
                 <span>Delete</span>
               </button>
-              <button className="btn btn-dark items-center" onClick={onClose}>
+              <button
+                className="btn btn-dark items-center"
+                onClick={toggleModal}
+              >
                 <i className="fa-solid fa-xmark"></i>
               </button>
             </div>
@@ -130,7 +141,7 @@ function EditModal({ onClose }: any) {
   );
 }
 
-function DeleteModal({ onClose }: any) {
+function DeleteModal({ toggleModal }: any) {
   return (
     <div className="max-w-screen max-h-screen overflow-y-auto hide-scroll">
       <form action="post">
@@ -142,7 +153,7 @@ function DeleteModal({ onClose }: any) {
               <button className="btn btn-accent-outline">
                 <span>Yes Delete</span>
               </button>
-              <button className="btn btn-dark" onClick={onClose}>
+              <button className="btn btn-dark" onClick={toggleModal}>
                 <span>Cancel</span>
               </button>
             </div>
@@ -153,13 +164,7 @@ function DeleteModal({ onClose }: any) {
   );
 }
 
-export default function Modal({
-  type,
-  onClose,
-  file,
-  setFile,
-  setXmlData,
-}: any) {
+export default function Modal({ type, toggleModal, xmlData, setXmlData }: any) {
   enum ModalType {
     ListOpen = "listOpen",
     Edit = "edit",
@@ -170,15 +175,14 @@ export default function Modal({
       <div className="fixed top-0 left-0 w-screen h-screen flex items-center justify-center bg-dark-900">
         {type == ModalType.ListOpen ? (
           <ListOpen
-            file={file}
-            setFile={setFile}
-            onClose={onClose}
+            toggleModal={toggleModal}
+            xmlData={xmlData}
             setXmlData={setXmlData}
           />
         ) : type === ModalType.Edit ? (
-          <EditModal onClose={onClose} />
+          <EditModal toggleModal={toggleModal} />
         ) : type === ModalType.Delete ? (
-          <DeleteModal onClose={onClose} />
+          <DeleteModal toggleModal={toggleModal} />
         ) : null}
       </div>
     </>
