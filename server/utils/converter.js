@@ -33,7 +33,6 @@ const converter = async (xmlData) => {
 
     const json = await parseXmlToJson(cleanedString);
     const isValid = validateJson(json);
-
     return { success: isValid, data: json };
   } catch (error) {
     console.error(error);
