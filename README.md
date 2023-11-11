@@ -1,5 +1,10 @@
 # <img src="./client/public/logo.png" alt="drawing" width="50" /> Anime Archive
 
+[![Netlify Status](https://api.netlify.com/api/v1/badges/c7314454-998d-4b4c-af57-e74381940497/deploy-status)](https://app.netlify.com/sites/sweet-elf-1ba41c/deploys)
+[![GitHub Stars](https://img.shields.io/github/stars/thehatclub/anime-archive.svg)](https://github.com/thehatclub/anime-archive/stargazers)
+[![GitHub Forks](https://img.shields.io/github/forks/thehatclub/anime-archive.svg)](https://github.com/thehatclub/anime-archive/network)
+[![License](https://img.shields.io/badge/license-MIT-blue.svg)](./LICENSE)
+
 Anime Archive is a full stack web app, designed to serve as a tool for reformatting anime progress data to fit the standard for My Anime List (MAL). This app provides users with the capability to store their anime progress offline, sync with their MAL account, and save data as a raw file to their computer for personal use.
 
 The Front End uses Vite, React, and Tailwind CSS.
@@ -49,10 +54,3 @@ This project is licensed under the MIT License - see the [LICENSE](./LICENSE) fi
 If you have any questions or feedback, feel free to reach out:
 
 - GitHub Issues: [Anime Archive Issues](https://github.com/thehatclub/anime-archive/issues)
-
----
-
-[![Netlify Status](https://api.netlify.com/api/v1/badges/c7314454-998d-4b4c-af57-e74381940497/deploy-status)](https://app.netlify.com/sites/sweet-elf-1ba41c/deploys)
-[![GitHub Stars](https://img.shields.io/github/stars/thehatclub/anime-archive.svg)](https://github.com/thehatclub/anime-archive/stargazers)
-[![GitHub Forks](https://img.shields.io/github/forks/thehatclub/anime-archive.svg)](https://github.com/thehatclub/anime-archive/network)
-[![License](https://img.shields.io/badge/license-MIT-blue.svg)](./LICENSE)
