@@ -31,7 +31,7 @@ function ListOpen({ toggleModal, setXmlData, xmlData }: any) {
           },
         });
 
-        window.open(response.data);
+        console.log(response.data);
         setIsLoading(false);
         toggleModal();
         return response.data;
