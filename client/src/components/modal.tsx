@@ -1,69 +1,77 @@
 // Importing required dependencies
 import { Card, Loading } from ".";
-import { useState } from "react";
+import { useCallback, useState } from "react";
 import axios from "axios";
 
-function ListOpen({ toggleModal, setXmlData, xmlData }: any) {
-  // State for managing the visibility of the form
-  const [isHidden, setIsHidden] = useState(true);
-  const [isLoading, setIsLoading] = useState(false);
+type ListOpenProps = {
+  toggleModal: () => void;
+  setXmlData: (data: any) => void;
+  xmlData: any;
+};
 
-  // Function to handle form submission
-  const handleSubmit = async (event: any) => {
-    event.preventDefault();
-    if (!xmlData) return;
+function ListOpen({ toggleModal, setXmlData }: ListOpenProps) {
+  const [isFormHidden, setIsFormHidden] = useState(true);
+  const [isFileLoading, setIsFileLoading] = useState(false);
+  const [file, setFile] = useState<File | null>(null);
+  const [error, setError] = useState<string | null>(null);
 
-    setIsLoading(true);
+  const handleSubmit = useCallback(
+    async (event: React.FormEvent) => {
+      event.preventDefault();
+      if (!file) return;
+      setIsFileLoading(true);
 
-    // Read the content of the XML file
-    const reader = new FileReader();
-    reader.onload = async (e) => {
-      const xmlContent = e.target?.result as string;
+      // Read the content of the XML file
+      const reader = new FileReader();
+      reader.onload = async (e) => {
+        const xmlContent = e.target?.result as string;
 
-      try {
-        const apiURL = import.meta.env.DEV
-          ? import.meta.env.VITE_API_URL
-          : import.meta.env.VITE_PROD_URL;
+        try {
+          const apiURL = import.meta.env.DEV
+            ? import.meta.env.VITE_API_URL
+            : import.meta.env.VITE_PROD_URL;
 
-        const response = await axios.post(`${apiURL}/convert`, xmlContent, {
-          headers: {
-            "Content-Type": "application/xml",
-          },
-        });
+          const response = await axios.post(`${apiURL}/convert`, xmlContent, {
+            headers: {
+              "Content-Type": "application/xml",
+            },
+          });
+          setXmlData(response.data.data);
+          setIsFileLoading(false);
+          toggleModal();
+        } catch (error) {
+          console.log("Error uploading XML data: " + error);
+          setError("Error uploading XML data: " + error);
+          setIsFileLoading(false);
+        }
+      };
 
-        console.log(response.data);
-        setIsLoading(false);
-        toggleModal();
-        return response.data;
-      } catch (error) {
-        console.log("Error uploading XML data: " + error);
-        alert("Error uploading XML data: " + error);
-        setIsLoading(false);
-      }
-    };
+      // Read the content of the file as text
+      reader.readAsText(file);
+    },
+    [file]
+  );
 
-    // Read the content of the file as text
-    reader.readAsText(xmlData);
-  };
+  // Handle the loading state in the UI
+  if (isFileLoading) {
+    return <Loading />;
+  }
 
   // Render the form
   return (
     <>
-      {isLoading ? <Loading /> : null}
       <form
         onSubmit={handleSubmit}
-        className={`${isLoading ? "opacity-30" : ""}`}
+        className={`${isFileLoading ? "opacity-30" : ""}`}
       >
         <div
           className={`${
-            isHidden ? "hidden" : ""
+            isFormHidden ? "hidden" : ""
           } button-group place-content-center p-5`}
         >
           <input
             type="file"
-            onChange={(e) =>
-              setXmlData(e.target.files ? e.target.files[0] : null)
-            }
+            onChange={(e) => setFile(e.target.files ? e.target.files[0] : null)}
             className="btn border-2 border-dashed"
           />
           <button type="submit" className="btn btn-accent">
@@ -72,7 +80,7 @@ function ListOpen({ toggleModal, setXmlData, xmlData }: any) {
         </div>
         <div
           className={`${
-            isHidden ? "" : "hidden"
+            isFormHidden ? "" : "hidden"
           } bg-dark-900 max-w-screen max-h-screen`}
         >
           <div className="button-group">
@@ -82,7 +90,7 @@ function ListOpen({ toggleModal, setXmlData, xmlData }: any) {
             </button>
             <button
               className="btn btn-light-outline"
-              onClick={() => setIsHidden(!isHidden)}
+              onClick={() => setIsFormHidden(!isFormHidden)}
             >
               <i className="fa-solid fa-file-signature"></i>
               <span>Open File</span>
@@ -90,6 +98,7 @@ function ListOpen({ toggleModal, setXmlData, xmlData }: any) {
           </div>
         </div>
       </form>
+      {error && <div className="error">{error}</div>}
     </>
   );
 }

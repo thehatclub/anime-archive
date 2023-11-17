@@ -14,9 +14,12 @@ export default function root() {
                 ANIME ARCHIVE
               </span>
             </h1>
-            <p className="mt-8 mb-2 text-md md:text-lg">
-              A place where you can store your progress offline
-            </p>
+            <div className="space-y-2 mb-2 mt-3">
+              <span className="bg-dark-950 text-sm btn">Pre-Beta v0.1.0</span>
+              <p className="text-md md:text-lg">
+                A place where you can store your progress offline
+              </p>
+            </div>
 
             <div className="hidden button-group justify-center">
               <a className="btn btn-primary">
@@ -28,15 +31,6 @@ export default function root() {
               </a>
             </div>
             <div className="button-group justify-center">
-              <div className="flex items-center py-2 px-4 space-x-4 rounded-md bg-dark-950 border-2 border-dashed">
-                <div className="flex items-center self-stretch justify-center">
-                  <i className="fa-solid fa-circle-info"></i>
-                </div>
-                <span className="text-sm">
-                  Anime archive is in pre-beta. XML reformatting is currently
-                  available only for Zoro proxy domains.
-                </span>
-              </div>
               <a href="wizard" className="btn btn-primary">
                 <i className="fa-solid fa-hat-wizard"></i>
                 <span>MAL Wizard</span>

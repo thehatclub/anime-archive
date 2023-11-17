@@ -5,7 +5,7 @@ export default function Sidebar() {
         <div className="space-y-3">
           <div className="hidden lg:flex items-center p-2 mb-12 space-x-4 justify-self-end">
             <img
-              src="profile.jpg"
+              src="https://placehold.co/255x255"
               alt="MAL Profile"
               className="w-12 h-12 rounded-md"
             />
