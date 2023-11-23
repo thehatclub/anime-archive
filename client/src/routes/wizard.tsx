@@ -3,7 +3,7 @@ import { Navbar, Card, Sidebar, Modal } from "../components";
 
 export default function Wizard() {
   const [isModalOpen, setIsModalOpen] = useState(true);
-  const [modalType, setModalType] = useState("listOpen"); // 'listopen' 'edit' or 'delete'
+  const [modalType, setModalType] = useState("fileOpen");
   const [xmlData, setXmlData] = useState(null);
 
   const toggleModal = (modal: string) => {
@@ -15,7 +15,7 @@ export default function Wizard() {
     <>
       {xmlData && (
         <div>
-          <Navbar xmlData={xmlData} />
+          <Navbar />
           <div className="flex flex-col lg:flex-row">
             <aside className="w-1/6 hidden lg:block sidebar">
               <Sidebar />
