@@ -1,18 +1,14 @@
-# <img src="./client/public/logo.png" alt="drawing" width="50" /> Anime Archive
+# <img src="public/logo.png" width="50" /> Anime Archive
 
-Anime Archive is a web application developed in React and Tailwind CSS, designed to serve as a tool for reformatting anime progress data to fit the standard for My Anime List (MAL). This app provides users with the capability to store their anime progress offline, sync with their MAL account, and save data as a raw file to their computer for personal use.
+Anime Archive is a web application developed in React and Python, designed to serve as a tool for reformatting anime watchlist data from "Zoro.to" proxies to improve readability. This app provides users with the capability to store their anime progress offline for personal use.
 
 ## Motivation
 
-Anime enthusiasts often use My Anime List to keep track of their watched shows and progress. However, there may be times when you want to keep a local copy of your anime list data, or you prefer to reformat your progress in a custom way. Anime Archive aims to bridge that gap by providing an easy-to-use solution for managing and formatting anime progress data.
+Anime enthusiasts often use My Anime List to keep track of their watched shows and progress. However, there may be times when you want to keep a local copy of your anime list data. Anime Archive aims to bridge that gap by providing an easy-to-use solution for managing and formatting anime progress data.
 
 ## Features
 
 - **Offline Progress Tracking**: Store your anime progress data locally, even without an internet connection.
-
-- **My Anime List Sync**: Sync your anime list with your My Anime List (MAL) account seamlessly.
-
-- **Custom Formatting**: Reformat your anime progress data to fit your preferences or export it in a way that suits your needs.
 
 - **Export to File**: Save your anime progress as a raw file on your computer for personal use or backup.
 

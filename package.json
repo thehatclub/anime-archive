@@ -1,14 +1,28 @@
 {
   "name": "anime-archive",
-  "version": "1.0.0",
-  "description": "Anime Archive is a Full-Stack web application developed in React, Tailwind CSS, and express, designed to serve as a tool for reformatting anime progress data to fit the standard for My Anime List (MAL). This app provides users with the capability to store your anime progress offline, sync with your MAL account, and save data as a raw file to your computer for personal use.",
-  "main": "server/index.js",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
   "scripts": {
-    "app-install": "cd client && npm i && cd .. && cd server && npm i",
-    "client-dev": "cd client && npm run dev",
-    "server-dev": "cd server && npm run start"
+    "dev": "vite",
+    "build": "vite build",
+    "lint": "eslint .",
+    "preview": "vite preview"
   },
-  "keywords": [],
-  "author": "Tanner Smiley",
-  "license": "MIT"
+  "dependencies": {
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1"
+  },
+  "devDependencies": {
+    "@eslint/js": "^9.8.0",
+    "@types/react": "^18.3.3",
+    "@types/react-dom": "^18.3.0",
+    "@vitejs/plugin-react": "^4.3.1",
+    "eslint": "^9.8.0",
+    "eslint-plugin-react": "^7.35.0",
+    "eslint-plugin-react-hooks": "^5.1.0-rc.0",
+    "eslint-plugin-react-refresh": "^0.4.9",
+    "globals": "^15.9.0",
+    "vite": "^5.4.0"
+  }
 }

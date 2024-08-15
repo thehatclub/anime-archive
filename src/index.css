@@ -1,0 +1,151 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Luckiest+Guy&family=Spline+Sans+Mono&display=swap");
+
+:root {
+    /* colors */
+    --primary: hsl(128, 100%, 84%);
+    --secondary: hsl(148, 17%, 30%);
+    --accent: hsl(60, 100%, 84%);
+
+    --gray10: hsl(0, 0%, 10%);
+    --gray30: hsl(0, 0%, 30%);
+    --gray50: hsl(0, 0%, 50%);
+    --gray70: hsl(0, 0%, 70%);
+    --gray90: hsl(0, 0%, 90%);
+
+    /* landing page */
+    --ffh: "Luckiest Guy", "Inter", sans-serif;
+    --ff: "Spline Sans Mono", "Inter", sans-serif;
+    --h1: bold 4rem/1em var(--ffh);
+    --h2: bold 3rem/1.2em var(--ffh);
+    --h3: bold 2.25rem/1.2em var(--ffh);
+    --h4: bold 1.5rem/1.6em var(--ff);
+    --big: 1.25rem/1.6em var(--ff);
+    --p: 1rem/1.6em var(--ff);
+    --small: 0.75rem/2em var(--ff);
+
+    /* UIs */
+    --h1ui: bold 3rem/1.2em var(--ff);
+    --h2ui: bold 2.25rem/1.2em var(--ff);
+    --h3ui: bold 1.5rem/1.2em var(--ff);
+    --h4ui: bold 1.12rem/1.6em var(--ff);
+    --bigui: 1rem/1.6em var(--ff);
+    --pui: 0.8rem/1.6em var(--ff);
+    --smallui: 0.75rem/1.8em var(--ff);
+}
+body {
+    margin: 2rem;
+    font-family: var(--ff);
+    text-wrap: balance;
+    background: var(--gray10);
+    color: var(--gray90);
+}
+
+/* landing page */
+h1 {
+    font: var(--h1);
+}
+h2 {
+    font: var(--h2);
+}
+h3 {
+    font: var(--h3);
+}
+h4 {
+    font: var(--h4);
+}
+.big {
+    font: var(--big);
+}
+p {
+    font: var(--p);
+}
+.small {
+    font: var(--small);
+}
+
+/* UIs */
+.ui h1 {
+    font: var(--h1ui);
+}
+.ui h2 {
+    font: var(--h2ui);
+}
+.ui h3 {
+    font: var(--h3ui);
+}
+.ui h4 {
+    font: var(--h4ui);
+}
+.ui .big {
+    font: var(--bigui);
+}
+.ui p {
+    font: var(--pui);
+}
+.ui .small {
+    font: var(--smallui);
+}
+
+.ts {
+    color: var(--gray70);
+}
+h1,
+h2,
+h3,
+h4,
+.big,
+p,
+.small {
+    margin: 0;
+    margin-top: 2rem;
+}
+.ui {
+    margin-top: 4rem;
+}
+
+/* design system */
+.container {
+    text-align: center;
+    background-color: var(--gray10);
+    width: 100%;
+}
+
+.primary {
+    color: var(--primary);
+}
+.secondary {
+    color: var(--secondary);
+}
+.accent {
+    color: var(--accent);
+}
+
+button {
+    color: var(--gray10);
+    display: inline-block;
+    outline: 0;
+    border: 2px solid;
+    cursor: pointer;
+    border-radius: 8px;
+    padding: 14px 24px 16px;
+    font-size: 18px;
+    line-height: 1;
+    margin: 10px;
+    text-decoration: underline;
+    text-transform: uppercase;
+}
+button span {
+    padding-left: 5px;
+}
+.btn-primary {
+    background-color: var(--primary);
+}
+.btn-secondary {
+    border-color: var(--secondary);
+    background: transparent;
+    color: var(--gray90);
+}
+.btn-accent {
+    background-color: var(--accent);
+}
