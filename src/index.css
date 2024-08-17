@@ -111,7 +111,7 @@ p,
 }
 
 .primary {
-    color: var(--primary);
+    color: var(--primary) !important;
 }
 .secondary {
     color: var(--secondary);
@@ -140,10 +140,17 @@ button span {
 .btn-primary {
     background-color: var(--primary);
 }
+.btn-primary:hover {
+    background-color: var(--gray10);
+    color: var(--primary);
+}
 .btn-secondary {
-    border-color: var(--secondary);
+    border-color: var(--gray50);
     background: transparent;
     color: var(--gray90);
+}
+.btn-secondary:hover {
+    border-color: var(--gray90);
 }
 .btn-accent {
     background-color: var(--accent);
